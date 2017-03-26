@@ -12,7 +12,7 @@ public class QuickSort {
         System.out.println(Arrays.stream(arr).boxed().collect(Collectors.toList()));
     }
 
-    private static void quicksort(int[] arr, int i, int j) {
+    public static void quicksort(int[] arr, int i, int j) {
         if(i < j){
             int pivot = arr[i];
             int left = i;
