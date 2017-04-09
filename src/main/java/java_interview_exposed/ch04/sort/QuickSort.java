@@ -1,4 +1,4 @@
-package ch04.sort;
+package java_interview_exposed.ch04.sort;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;

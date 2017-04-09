@@ -1,9 +1,9 @@
-package ch04.search;
+package java_interview_exposed.ch04.search;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-import static ch04.sort.QuickSort.quicksort;
+import static java_interview_exposed.ch04.sort.QuickSort.quicksort;
 
 /**
  * Created by jwlee1 on 2017. 3. 27..
