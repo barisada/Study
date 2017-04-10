@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 /**
  * Created by jw on 2017-04-09.
  */
-public class QuickFindUF {
+public class QuickFindUF implements UnionFind{
     private int[] id;
     private int count;
 
@@ -28,7 +28,7 @@ public class QuickFindUF {
      * @param q
      */
     public void union(int p, int q){
-        if(connencted(p, q)){
+        if(connected(p, q)){
            return;
         }
 
@@ -48,7 +48,7 @@ public class QuickFindUF {
      * @param q
      * @return
      */
-    public boolean connencted(int p, int q) {
+    public boolean connected(int p, int q) {
         return id[p] == id[q];
     }
 
