@@ -56,8 +56,8 @@ public class QuickUnionPathCompression implements UnionFind{
 		return count;
 	}
 
-	public int find(int p) {
-		return id[p];
+	public int find(int i) {
+		return this.root(i);
 	}
 
 	public String toString(){
