@@ -10,9 +10,20 @@ public class UnionFindClient {
 
     public static void main(String[] args) {
         //quickUnionTest();
-        weightedQUTest();
+        wqupathcompressionTest();
 
 
+    }
+
+    public static void wqupathcompressionTest(){
+        int size = 10;
+        List<Integer> list = Arrays.asList(4,3,6,9,2,5,7,6,7);
+        List<Integer> list2 = Arrays.asList(3,8,5,4,1,0,2,1,3);
+
+        QuickUnionPathCompression quwpc = new QuickUnionPathCompression(size);
+        create(quwpc, list, list2);
+        System.out.println(quwpc.toString());
+        System.out.println(quwpc.count());
     }
 
     public static void weightedQUTest(){
