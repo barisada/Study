@@ -9,16 +9,32 @@ import java.util.List;
 public class UnionFindClient {
 
     public static void main(String[] args) {
+        //quickUnionTest();
+        weightedQUTest();
+
+
+    }
+
+    public static void weightedQUTest(){
         int size = 10;
-        List<Integer> list = Arrays.asList(4,3,6,9,2,8,5,7,6,7);
-        List<Integer> list2 = Arrays.asList(3,8,5,4,1,9,0,2,1,3);
+        List<Integer> list = Arrays.asList(4,3,6,9,2,5,7,6,7);
+        List<Integer> list2 = Arrays.asList(3,8,5,4,1,0,2,1,3);
+
+        QuickUnionWeighted quw = new QuickUnionWeighted(size);
+        create(quw, list, list2);
+        System.out.println(quw.toString());
+        System.out.println(quw.count());
+    }
+
+    private static void quickUnionTest() {
+        int size = 10;
+        List<Integer> list = Arrays.asList(4,3,6,9,2,8,5,5,7,6,7);
+        List<Integer> list2 = Arrays.asList(3,8,5,4,1,9,4,0,2,1,3);
 
         QuickUnionUF quickUnion = new QuickUnionUF(size);
         create(quickUnion, list, list2);
         System.out.println(quickUnion.toString());
         System.out.println(quickUnion.count());
-
-
     }
 
     private static void create(UnionFind uf, List<Integer> list, List<Integer> list2) {
