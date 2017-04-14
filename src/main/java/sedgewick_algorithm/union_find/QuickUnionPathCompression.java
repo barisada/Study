@@ -27,11 +27,10 @@ public class QuickUnionPathCompression implements UnionFind{
 	}
 
 	public int root(int i){
-		int temp = i;
 		while(this.id[i] != i){
+			id[i] = id[id[i]];
 			i = this.id[i];
 		}
-		this.id[temp] =i;
 		return i;
 	}
 

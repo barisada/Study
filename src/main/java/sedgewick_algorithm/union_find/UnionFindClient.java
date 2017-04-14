@@ -13,7 +13,8 @@ public class UnionFindClient {
 
     public static void main(String[] args) {
         //quickUnionTest();
-        wqupathcompressionTest();
+        //wqupathcompressionTest();
+        weightedQUTest();
 
 
     }
