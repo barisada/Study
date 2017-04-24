@@ -7,8 +7,8 @@ import edu.princeton.cs.algs4.StdStats;
  * Created by jw on 2017-04-24.
  */
 public class PercolationStats {
-    int trials;
-    double[] threshold;
+    private int trials;
+    private double[] threshold;
 
     // perform trials independent experiments on an n-by-n grid
     public PercolationStats(int n, int trials){

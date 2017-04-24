@@ -12,9 +12,9 @@ import java.util.StringJoiner;
  */
 public class Percolation {
 
-	int size;
-	int[][] grid;
-	WeightedQuickUnionUF uf;
+	private int size;
+	private int[][] grid;
+	private WeightedQuickUnionUF uf;
 
 	// create n-by-n grid, with all sites blocked
 	public Percolation(int n){
@@ -27,23 +27,22 @@ public class Percolation {
 	public void open(int row, int col){
 		if(row >= 1 && col >= 1 && row <= size && col <= size) {
 			if (this.grid[row][col] == 0) {
-				this.grid[row][col] = 1;
-
 				int curRow = row - 1;
 				int curCol = col;
 				int p = (curRow * size) + col;
+				this.grid[row][col] = 1;
 
 				int upRow = curRow - 1;
 				int downRow = curRow + 1;
 				int leftCol = col - 1;
 				int rightCol = col + 1;
 
-				if (upRow >= 0 && isOpen(row - 1, col)) {
+				if (row - 1 >= 1 && isOpen(row - 1, col)) {
 					//up
 					int q = (upRow * size) + curCol;
 					uf.union(p, q);
 				}
-				if (downRow < size && isOpen(row + 1, col)){
+				if (row + 1 <= size && isOpen(row + 1, col)){
 					//down
 					int q = (downRow * size) + curCol;
 					uf.union(p, q);
@@ -57,6 +56,7 @@ public class Percolation {
 					//right
 					int q = (curRow * size) + rightCol;
 					uf.union(p, q);
+
 				}
 			}
 		}
@@ -64,17 +64,19 @@ public class Percolation {
 
 	// is site (row, col) open?
 	public boolean isOpen(int row, int col){
-		return this.grid[row][col] == 1;
+		return this.grid[row][col] > 0;
 	}
 
 	// is site (row, col) full?
 	public boolean isFull(int row, int col){
+		if(grid[row][col] == 2){
+			return true;
+		}
 		if(isOpen(row, col)) {
 			int p = ((row - 1) * size) + col;
-			int root = uf.find(p);
-			for (int i = 1; i <= size; i++) {
-				int firstRowRoot = uf.find(i);
-				if (root == firstRowRoot) {
+			for(int i = 1; i <= size; i++){
+				if(uf.connected(p, i)){
+					grid[row][col] = 2;
 					return true;
 				}
 			}
@@ -89,7 +91,7 @@ public class Percolation {
 		int count = 0;
 		for(int i = 1; i <= size; i++){
 			for(int j = 1; j <= size; j++){
-				if(this.grid[i][j] == 1){
+				if(this.grid[i][j] > 0){
 					count++;
 				}
 			}
@@ -121,13 +123,13 @@ public class Percolation {
 			sb.append(sj);
 			sb.append("]\r\n");
 		}
-		sb.append(uf.toString());
+		sb.append(uf.toString() + "\r\n");
 		return sb.toString();
 	}
 
 	// test client (optional)
 	public static void main(String[] args){
-		In in = new In("D:\\JW\\study\\coursera\\algorithm_part1\\percolation-testing\\percolation\\sedgewick60.txt");
+		In in = new In("/Users/jwlee1/drjava_work/percolation/input10-no.txt");
 		int n = in.readInt();         // n-by-n percolation system
 		Percolation p = new Percolation(n);
 		while (!in.isEmpty()) {
@@ -137,9 +139,15 @@ public class Percolation {
 			/*draw(p, n);
 			StdDraw.show();*/
 		}
+
+		/*int n=8;
+		Percolation p = new Percolation(8);*/
+
+		draw(p, n);
+		StdDraw.show();
+
 		System.out.println(p.toString());
 		System.out.println(p.percolates());
-		System.out.println(p.numberOfOpenSites());
 	}
 
 	public static void draw(Percolation perc, int n) {
