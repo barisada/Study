@@ -14,76 +14,110 @@ public class Percolation {
 
 	private int size;
 	private int[][] grid;
+	private boolean isPercolated;
+	private boolean[] full;
 	private WeightedQuickUnionUF uf;
 
 	// create n-by-n grid, with all sites blocked
 	public Percolation(int n){
+		if(n <= 0 ){
+			throw new IllegalArgumentException();
+		}
 		this.size = n;
 		this.grid = new int[n + 1][n + 1];
-		this.uf = new WeightedQuickUnionUF( (n* n) + 1);
+		this.full = new boolean[n*n + 1];
+		this.uf = new WeightedQuickUnionUF( (n*n) + 1);
 	}
 
 	// open site (row, col) if it is not open already
 	public void open(int row, int col){
-		if(row >= 1 && col >= 1 && row <= size && col <= size) {
-			if (this.grid[row][col] == 0) {
-				int curRow = row - 1;
-				int curCol = col;
-				int p = (curRow * size) + col;
-				this.grid[row][col] = 1;
+		validation(row, col);
+		if (this.grid[row][col] == 0) {
+			int curRow = row - 1;
+			int curCol = col;
+			int p = (curRow * size) + col;
+			this.grid[row][col] = p;
 
-				int upRow = curRow - 1;
-				int downRow = curRow + 1;
-				int leftCol = col - 1;
-				int rightCol = col + 1;
+			int upRow = curRow - 1;
+			int downRow = curRow + 1;
+			int leftCol = col - 1;
+			int rightCol = col + 1;
 
-				if (row - 1 >= 1 && isOpen(row - 1, col)) {
-					//up
-					int q = (upRow * size) + curCol;
-					uf.union(p, q);
-				}
-				if (row + 1 <= size && isOpen(row + 1, col)){
-					//down
-					int q = (downRow * size) + curCol;
-					uf.union(p, q);
-				}
-				if(leftCol >= 1 && isOpen(row, leftCol)){
-					//left
-					int q = (curRow * size) + leftCol;
-					uf.union(p, q);
-				}
-				if(rightCol <= size && isOpen(row, rightCol)){
-					//right
-					int q = (curRow * size) + rightCol;
-					uf.union(p, q);
+			if (row - 1 >= 1 && isOpen(row - 1, col)) {
+				//up
+				int q = (upRow * size) + curCol;
+				uf.union(p, q);
+			}
+			if (row + 1 <= size && isOpen(row + 1, col)){
+				//down
+				int q = (downRow * size) + curCol;
+				uf.union(p, q);
+			}
+			if(leftCol >= 1 && isOpen(row, leftCol)){
+				//left
+				int q = (curRow * size) + leftCol;
+				uf.union(p, q);
+			}
+			if(rightCol <= size && isOpen(row, rightCol)){
+				//right
+				int q = (curRow * size) + rightCol;
+				uf.union(p, q);
+			}
 
+			checkFull(p, uf.find(p));
+			checkPecolation();
+		}
+	}
+
+	private void checkFull(int index, int root) {
+		for(int i = 1; i <=size; i++){
+			if(uf.connected(i, root)){
+				full[index] = true;
+				break;
+			}
+		}
+		if(full[index]){
+			for(int j = 1; j < full.length; j++){
+				if(root == uf.find(j)){
+					full[j] = true;
 				}
+			}
+		}
+	}
+
+	private void checkPecolation() {
+		for(int i = 1; i <= size; i++) {
+			if(isFull(size, i)) {
+				isPercolated = true;
+				break;
 			}
 		}
 	}
 
 	// is site (row, col) open?
 	public boolean isOpen(int row, int col){
+		validation(row, col);
 		return this.grid[row][col] > 0;
 	}
 
 	// is site (row, col) full?
 	public boolean isFull(int row, int col){
-		if(grid[row][col] == 2){
-			return true;
-		}
-		if(isOpen(row, col)) {
-			int p = ((row - 1) * size) + col;
+		validation(row, col);
+		return full[grid[row][col]];
+		/*if(isOpen(row, col)) {
+			if(row == 1 ){
+				return true;
+			}
+			int p = grid[row][col];
 			for(int i = 1; i <= size; i++){
 				if(uf.connected(p, i)){
-					grid[row][col] = 2;
 					return true;
 				}
 			}
 			return false;
 		} else {
 			return false;
-		}
+		}*/
 	}
 
 	// number of open sites
@@ -101,6 +135,8 @@ public class Percolation {
 
 	// does the system percolate?
 	public boolean percolates(){
+		return isPercolated;
+		/*
 		boolean isFull = false;
 		for(int i = 1; i <= size; i++){
 			isFull = this.isFull(size, i);
@@ -108,7 +144,11 @@ public class Percolation {
 				return isFull;
 			}
 		}
-		return isFull;
+		return isFull;*/
+	}
+
+	private void validation(int row, int col) {
+		if(!(row >= 1 && col >= 1 && row <= size && col <= size)) throw new IndexOutOfBoundsException();
 	}
 
 	public String toString(){
@@ -129,7 +169,8 @@ public class Percolation {
 
 	// test client (optional)
 	public static void main(String[] args){
-		In in = new In("/Users/jwlee1/drjava_work/percolation/input10-no.txt");
+		//In in = new In("/Users/jwlee1/drjava_work/percolation/input10-no.txt");
+		In in = new In("D:\\JW\\study\\coursera\\algorithm_part1\\percolation\\percolation-testing\\percolation\\input50.txt");
 		int n = in.readInt();         // n-by-n percolation system
 		Percolation p = new Percolation(n);
 		while (!in.isEmpty()) {
