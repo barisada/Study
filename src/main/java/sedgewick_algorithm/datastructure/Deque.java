@@ -52,17 +52,23 @@ public class Deque<Item> implements Iterable<Item> {
             Node<Item> node = new Node<>(last, item, null);
             this.last = node;
             oldLast.next = node;
+            size++;
         }
-        size++;
+
     }
 
     // remove and return the item from the front
     public Item removeFirst(){
         if(!isEmpty()){
-            Node<Item> oldFirst = this.first;
-            this.first = this.first.next;
+            Node<Item> next = this.first.next;
+            Item item = this.first.item;
+            this.first.item = null;
+            this.first.next = null;
+            this.first = null;
+
+            this.first = next;
             size--;
-            return oldFirst.item;
+            return item;
         } else{
             throw new NoSuchElementException();
         }
@@ -72,9 +78,16 @@ public class Deque<Item> implements Iterable<Item> {
     public Item removeLast(){
         if(!isEmpty()){
             Node<Item> oldLast = this.last;
-            this.last = this.last.prev;
-            this.last.next = null;
-            size--;
+            if(size == 1) {
+                this.removeFirst();
+            } else {
+                this.last = this.last.prev;
+                this.last.next = null;
+                size--;
+            }
+            oldLast.next = null;
+            oldLast.prev = null;
+
             return oldLast.item;
         } else{
             throw new NoSuchElementException();
@@ -108,35 +121,20 @@ public class Deque<Item> implements Iterable<Item> {
 
     // unit testing (optional)
     public static void main(String[] args){
-        Deque<String> deque = new Deque<>();
-        System.out.println(deque.isEmpty());
-        deque.addFirst("a");
-        deque.addFirst("b");
-        deque.addFirst("c");
-        deque.addFirst("d");
-        printDeque(deque);
-        System.out.println(deque.removeFirst());
-        printDeque(deque);
-        System.out.println(deque.removeLast());
-        printDeque(deque);
-
-        deque.addLast("1");
-        deque.addLast("2");
-        deque.addLast("3");
-        deque.addLast("4");
-        printDeque(deque);
-        deque.removeFirst();
+        Deque<Object> deque = new Deque<>();
+        deque.addLast(0);
+        deque.addFirst(1);
+        deque.removeLast();
         deque.removeLast();
         printDeque(deque);
-
         System.out.println("size : " + deque.size());
 
 
     }
 
-    private static void printDeque(Deque<String> deque) {
-        List<String> list = new ArrayList<>();
-        for(String s : deque){
+    private static void printDeque(Deque<? extends Object> deque) {
+        List<Object> list = new ArrayList<>();
+        for(Object s : deque){
             list.add(s);
         }
         System.out.println(list);
