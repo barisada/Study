@@ -83,25 +83,23 @@ public class Deque<Item> implements Iterable<Item> {
 
     // return an iterator over items in order from front to end
     public Iterator<Item> iterator(){
-        Node<Item> temp = first;
-        final Node[] nodeArr = {temp};
-        return new Iterator<Item>() {
-            @Override
-            public boolean hasNext() {
-                return nodeArr[0] != null;
-            }
+       return new DequeIterator();
+    }
 
-            @Override
-            public Item next() {
-                if(nodeArr[0] != null) {
-                    Item item = (Item) nodeArr[0].item;
-                    nodeArr[0] = nodeArr[0].next;
-                    return item;
-                } else{
-                    throw new NoSuchElementException();
-                }
-            }
-        };
+    private class DequeIterator implements Iterator<Item>{
+        Node<Item> node = first;
+
+        @Override
+        public boolean hasNext() {
+           return node != null;
+        }
+
+        @Override
+        public Item next() {
+            Node<Item> oldNode = node;
+            node = node.next;
+            return oldNode.item;
+        }
     }
 
     private void validation(Item item) {
@@ -137,10 +135,9 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     private static void printDeque(Deque<String> deque) {
-        Iterator<String> it = deque.iterator();
         List<String> list = new ArrayList<>();
-        while(it.hasNext()){
-            list.add(it.next());
+        for(String s : deque){
+            list.add(s);
         }
         System.out.println(list);
     }
