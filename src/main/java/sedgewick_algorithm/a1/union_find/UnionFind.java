@@ -1,4 +1,4 @@
-package sedgewick_algorithm.union_find;
+package sedgewick_algorithm.a1.union_find;
 
 /**
  * Created by jw on 2017-04-10.

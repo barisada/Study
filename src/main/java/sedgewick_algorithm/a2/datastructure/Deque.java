@@ -1,4 +1,4 @@
-package sedgewick_algorithm.datastructure;
+package sedgewick_algorithm.a2.datastructure;
 
 import java.util.ArrayList;
 import java.util.Iterator;

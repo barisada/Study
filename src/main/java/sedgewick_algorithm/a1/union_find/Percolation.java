@@ -1,4 +1,4 @@
-package sedgewick_algorithm.union_find;
+package sedgewick_algorithm.a1.union_find;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdDraw;

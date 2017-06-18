@@ -1,4 +1,4 @@
-package sedgewick_algorithm.union_find;
+package sedgewick_algorithm.a1.union_find;
 
 import java.util.StringJoiner;
 

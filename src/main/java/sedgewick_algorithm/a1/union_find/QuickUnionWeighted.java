@@ -1,4 +1,4 @@
-package sedgewick_algorithm.union_find;
+package sedgewick_algorithm.a1.union_find;
 
 import java.util.StringJoiner;
 import java.util.stream.IntStream;
@@ -6,13 +6,13 @@ import java.util.stream.IntStream;
 /**
  * Created by jwlee1 on 2017. 4. 14..
  */
-public class QuickUnionPathCompression implements UnionFind{
+public class QuickUnionWeighted implements UnionFind{
 	private int count;
 	private int[] id;
 	private int[] sz;
 
 
-	public QuickUnionPathCompression(int size){
+	public QuickUnionWeighted(int size){
 		this.count = size;
 		this.id = new int[size];
 		this.sz = new int[size];
@@ -28,7 +28,6 @@ public class QuickUnionPathCompression implements UnionFind{
 
 	public int root(int i){
 		while(this.id[i] != i){
-			id[i] = id[id[i]];
 			i = this.id[i];
 		}
 		return i;
