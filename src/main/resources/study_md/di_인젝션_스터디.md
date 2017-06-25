@@ -12,7 +12,7 @@
 * 보통 BeanFactory는 XML등으로 bean을 정의한 구성요소를 로드하고 __org.springframework.beans__ 패키기를 사용하여 bean을 구성한다. 그러나 구현은 Java 코드에서 직접 작성한 Java 객체를 필요에 따라 간단히 반환 할 수 있다. LDAP, RDBMS, XML, 특성 파일 등 정의가 저장 될 수있는 방법에 제약이 없다. 구현은 빈 사이의 참조 (Dependency Injection)를 지원하도록 권장된다.
 * ListableBeanFactory와 대조적으로 BeanFactory의 모든 오퍼레이션은 HierarchicalBeanFactory인 경우 부모 팩토리 또한 체크한다. 만약 bean이 현재 팩토리 인스턴스에서 발견되지 않으면 즉시 부모 팩토리에서 체크한다. 이 팩토리 인스탄스의 Beans들은 부모 팩토리에 있는 같은 이름의 beans들을 오버라이드 하도록 되어있다.
 
-Bean factory implementations should support the standard bean lifecycle interfaces as far as possible. The full set of initialization methods and their standard order is:
+Bean factory 구현은 가능한 표준 bean 라이프사이클을 지원해야한다. 전체 초기화 메소드들과 표준 순서는 아래와 같다.
 
 1. BeanNameAware's setBeanName
 2. BeanClassLoaderAware's setBeanClassLoader
@@ -27,9 +27,9 @@ Bean factory implementations should support the standard bean lifecycle interfac
 11. postProcessBeforeInitialization methods of BeanPostProcessors
 12. InitializingBean's afterPropertiesSet
 13. a custom init-method definition
-postProcessAfterInitialization methods of BeanPostProcessors
+14. postProcessAfterInitialization methods of BeanPostProcessors
 
-On shutdown of a bean factory, the following lifecycle methods apply:
+아래 라이프사이클 메소드는 Bean factory 종료시 적용된다.
 
 1. postProcessBeforeDestruction methods of DestructionAwareBeanPostProcessors
 2. DisposableBean's destroy
