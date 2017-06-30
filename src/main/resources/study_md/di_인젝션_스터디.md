@@ -35,3 +35,29 @@ Bean factory 구현은 가능한 표준 bean 라이프사이클을 지원해야�
 2. DisposableBean's destroy
 3. a custom destroy-method definition
 
+
+
+#GM님 파트
+
+### OOP 프로그래밍 SOLID 5원칙
+
+1. S : 객체에게 하나의 책임을 지게하는일. -> 객체가 변하는 이유는 단 하나여야한다.  -> 변화시 최소한의 영향을 주게 됨.
+2. O : 확장에는 열려있고, 변화에는 닫혀있긔. -> 확장은 가능하면서도 확장 코드를 수정이 없어야한다. -> 추상화를 통해서 해결.
+3. L : 부모 객체의 메소드는 자식 객체 메소드에서도 정상동작해야함. -> 계약한대로 동장하지 않으면 확장 할 수 없다.
+4. I : 인터페이스는 그 인터페이스를 사용하는 클라이언트 기준으로 분리해야한다.
+5. D : 고수준 정책이 저수준 구현에 의존하면 안된다.
+
+#####해설
+- S를 뒷받치하는게 I
+- O를 뒷받침하는게 L(추상화), D(다형성)
+ 
+ -> 스프링의 DI를 쓴다는건 SOLID한 원칙을 지키는 것을 누릴 수 있게 해준다.
+ 
+#####기타
+- dbms tranaction은 acid 원칙을따른다.
+	- 그중 Isolation 3가지 문제를 방지하기 위해서고, anci에서는 4가지 방법으로 해결 방법을 제공.
+	- 오라클은 read_commit, repeat_commit, serialize commit지원
+	- mysql, mssql은 처음 2개만 지원
+- concurrenthashmap은 16개의 hashset을 lock 걸어서 단일 1개 lock 보다 빠름.
+ 
+  
