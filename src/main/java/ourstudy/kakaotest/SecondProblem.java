@@ -19,13 +19,13 @@ public class SecondProblem {
         }
         sc.close();
 
-        list.sort(MyInteger::compare);
+        list.sort(MyInteger::compareTo);
         System.out.println(list.stream().map(my -> my.dec).collect(Collectors.toList()));
     }
 
 }
 
-class MyInteger{
+class MyInteger implements Comparable<MyInteger>{
     int dec;
     int binaryCardinarity;
     public MyInteger(int decimal, int bc){
@@ -55,5 +55,10 @@ class MyInteger{
                 "dec=" + dec +
                 ", binaryCardinarity=" + binaryCardinarity +
                 '}';
+    }
+
+    @Override
+    public int compareTo(MyInteger o) {
+        return compare(this, o);
     }
 }
