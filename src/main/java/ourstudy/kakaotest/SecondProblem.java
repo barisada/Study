@@ -1,7 +1,7 @@
 package ourstudy.kakaotest;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by jw on 2017-07-02.
@@ -10,48 +10,50 @@ public class SecondProblem {
     public static void main(String...args){
         Scanner sc = new Scanner(System.in);
         int total = sc.nextInt();
-        int[] decimals = new int[total];
-        int[] binaryCardinarity = new int[total];
+
+        List<MyInteger> list = new ArrayList<>();
         for(int i = 0; i < total; i++){
             int input = sc.nextInt();
-            decimals[i] = input;
-            binaryCardinarity[i] = Integer.toBinaryString(input).replaceAll("0", "").length();
+            MyInteger temp = new MyInteger(input, Integer.toBinaryString(input).replaceAll("0", "").length());
+            list.add(temp);
         }
         sc.close();
-       // int[] sortedArray = quicksort(decimals, binaryCardinarity, 0, binaryCardinarity.length-1);
-       // System.out.println(Arrays.asList(sortedArray));
+
+        list.sort(MyInteger::compare);
+        System.out.println(list.stream().map(my -> my.dec).collect(Collectors.toList()));
     }
 
-  /*  public static void quicksort(int[] decimals, int[] binaryCardinarity, int i, int j) {
-        if(i < j){
-            int pivot = binaryCardinarity[i];
-            int decimalPivot = decimals[i];
-            int left = i;
-            int right = j;
+}
 
-            while(left < right){
-                while(binaryCardinarity[right] > pivot) right--;
-                while(left < right && binaryCardinarity[left] < pivot) left++;
-                if(binaryCardinarity[left] == pivot){
-                    if(decimals[left] > decimalPivot){
-                        changePosition(decimals, binaryCardinarity, left, right);
-                    }
-                }
-                changePosition(binaryCardinarity, left, right);
+class MyInteger{
+    int dec;
+    int binaryCardinarity;
+    public MyInteger(int decimal, int bc){
+        dec = decimal;
+        binaryCardinarity = bc;
+    }
+
+    public static int compare(MyInteger mi1, MyInteger mi2) {
+        if(mi1.binaryCardinarity > mi2.binaryCardinarity){
+            return 1;
+        } else if (mi1.binaryCardinarity < mi2.binaryCardinarity){
+            return -1;
+        } else {
+            if(mi1.dec > mi2.dec){
+                return 1;
+            } else if(mi1.dec < mi2.dec){
+                return -1;
+            } else {
+                return 0;
             }
-
-            binaryCardinarity[i] = binaryCardinarity[right];
-            binaryCardinarity[right] = pivot;
-
-            quicksort(binaryCardinarity, i, right - 1);
-            quicksort(binaryCardinarity, right + 1, j);
-
         }
-    }*/
+    }
 
-    private static void changePosition(int[] binaryCardinarity, int left, int right) {
-        int temp = binaryCardinarity[left];
-        binaryCardinarity[left] = binaryCardinarity[right];
-        binaryCardinarity[right] = temp;
+    @Override
+    public String toString() {
+        return "MyInteger{" +
+                "dec=" + dec +
+                ", binaryCardinarity=" + binaryCardinarity +
+                '}';
     }
 }
