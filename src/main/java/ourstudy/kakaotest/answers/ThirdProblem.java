@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 /**
  * Created by jw on 2017-07-03.
  */
+@SuppressWarnings("Duplicates")
 public class ThirdProblem {
     private static Integer[] answer;
     private static List<String> stopword;
