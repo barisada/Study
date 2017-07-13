@@ -3,6 +3,7 @@ package sedgewick_algorithm.graph;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.StringJoiner;
 
 /**
  * Created by jwlee1 on 2017. 7. 12..
@@ -48,5 +49,14 @@ public class Graph{
 
 	public List<List<Integer>> getAdjacencyList() {
 		return adjacencyList;
+	}
+	public String toString(){
+		StringJoiner sj = new StringJoiner(", ");
+		for(int i = 0; i < v; i++){
+			for(int v : adjacencyList.get(i)){
+				sj.add(i + "-" + v);
+			}
+		}
+		return sj.toString();
 	}
 }

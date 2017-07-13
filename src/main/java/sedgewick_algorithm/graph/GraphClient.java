@@ -1,5 +1,11 @@
 package sedgewick_algorithm.graph;
 
+import sedgewick_algorithm.bigraph.Bigraph;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Arrays;
 
 /**
@@ -24,26 +30,20 @@ public class GraphClient {
 	9 11
 	5 3
 	 */
-	public static void main(String...args){
-		Graph g = new Graph(13);
-		g.addEdge(0,5);
-		g.addEdge(4,3);
-		g.addEdge(0,1);
-		g.addEdge(9,12);
-		g.addEdge(6,4);
-		g.addEdge(5,4);
-		g.addEdge(0,2);
-		g.addEdge(11,12);
-		g.addEdge(9,10);
-		g.addEdge(0,6);
-		g.addEdge(7,8);
-		g.addEdge(9,11);
-		g.addEdge(5,3);
-		System.out.println(g.getEdgeSize());
-
-
-		DepthFirstSearch dfs = new DepthFirstSearch(g, 7);
+	public static void main(String...args) throws IOException {
+		BufferedReader br = new BufferedReader(new FileReader("src/main/resources/graph/tinyCG.txt"));
+		Graph g = new Graph(Integer.valueOf(br.readLine()));
+		int edges = Integer.valueOf(br.readLine());
+		for(int i = 0; i < edges; i++){
+			String[] pair = br.readLine().split(" ");
+			g.addEdge(Integer.valueOf(pair[0]), Integer.valueOf(pair[1]));
+		}
+		System.out.println(g.toString());
+		BreadthFirstSearch dfs = new BreadthFirstSearch(g, 0);
 		System.out.println(Arrays.asList(dfs.getMarked()));
 		System.out.println(Arrays.asList(dfs.getEdgeTo()));
+		System.out.println(Arrays.asList(dfs.getDist()));
+
+
 	}
 }
