@@ -7,11 +7,6 @@ import java.util.Scanner;
 /**
  * Created by jw on 2017-07-14.
  * https://algospot.com/judge/problem/read/COUNTPALIN
- *
- 3
- 1 a
- 4 aaaa
- 8 abcddcba
  */
 public class _Third_CountPalindrome {
     public static void main(String...args){
