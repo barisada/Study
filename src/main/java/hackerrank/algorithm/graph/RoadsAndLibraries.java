@@ -1,4 +1,4 @@
-package hackerrank.algorithm;
+package hackerrank.algorithm.graph;
 
 import java.util.*;
 
