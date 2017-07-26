@@ -1,4 +1,4 @@
-package ourstudy.spring_study.service;
+package ourstudy.spring_study.aop.service;
 
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
