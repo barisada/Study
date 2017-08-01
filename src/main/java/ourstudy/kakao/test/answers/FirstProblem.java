@@ -1,4 +1,4 @@
-package ourstudy.kakaotest.answers;
+package ourstudy.kakao.test.answers;
 
 import java.util.Scanner;
 
