@@ -7,7 +7,7 @@ public class QuickSort {
 
 
     public static void main(String...args){
-        int[] arr = {2,6,7,8,1,3,4,5};
+        int[] arr = {1,2,5,6,3,4};
         quicksort(arr, 0, arr.length-1);
         System.out.println(Arrays.stream(arr).boxed().collect(Collectors.toList()));
     }
@@ -25,10 +25,13 @@ public class QuickSort {
                 int temp = arr[left];
                 arr[left] = arr[right];
                 arr[right] = temp;
+                System.out.println("inside loop : "  + Arrays.stream(arr).boxed().collect(Collectors.toList()));
             }
 
             arr[i] = arr[right];
             arr[right] = pivot;
+
+            System.out.println(Arrays.stream(arr).boxed().collect(Collectors.toList()));
 
             quicksort(arr, i, right - 1);
             quicksort(arr, right + 1, j);

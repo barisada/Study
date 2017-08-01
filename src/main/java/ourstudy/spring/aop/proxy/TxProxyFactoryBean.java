@@ -1,8 +1,7 @@
-package ourstudy.spring_study.aop.proxy;
+package ourstudy.spring.aop.proxy;
 
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
-import ourstudy.spring_study.aop.service.SomeService;
 
 import java.lang.reflect.Proxy;
 import java.util.List;

@@ -1,7 +1,5 @@
-package ourstudy.spring_study.aop;
+package ourstudy.spring.aop;
 
-import edu.princeton.cs.algs4.Transaction;
-import org.omg.CORBA.PRIVATE_MEMBER;
 import org.springframework.aop.framework.ProxyFactoryBean;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.NameMatchMethodPointcut;
@@ -11,13 +9,13 @@ import org.springframework.context.annotation.Description;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.transaction.PlatformTransactionManager;
-import ourstudy.spring_study.aop.proxy.TransactionAdvice;
-import ourstudy.spring_study.aop.proxy.TxHandler;
-import ourstudy.spring_study.aop.proxy.TxProxyFactoryBean;
-import ourstudy.spring_study.aop.service.BusinessLoginOnlyServiceImpl;
-import ourstudy.spring_study.aop.service.ConcreteService;
-import ourstudy.spring_study.aop.service.SomeService;
-import ourstudy.spring_study.aop.service.TxOnlyServiceImpl;
+import ourstudy.spring.aop.proxy.TransactionAdvice;
+import ourstudy.spring.aop.proxy.TxHandler;
+import ourstudy.spring.aop.proxy.TxProxyFactoryBean;
+import ourstudy.spring.aop.service.BusinessLoginOnlyServiceImpl;
+import ourstudy.spring.aop.service.ConcreteService;
+import ourstudy.spring.aop.service.SomeService;
+import ourstudy.spring.aop.service.TxOnlyServiceImpl;
 
 import javax.sql.DataSource;
 import java.util.Arrays;

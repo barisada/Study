@@ -1,4 +1,4 @@
-package ourstudy.spring_study.aop.service;
+package ourstudy.spring.aop.service;
 
 /**
  * Created by jw on 2017-07-27.
