@@ -1,4 +1,4 @@
-package ourstudy.skt_test.answers;
+package ourstudy.skt.test.answers;
 
 import java.util.ArrayList;
 import java.util.List;
