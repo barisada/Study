@@ -1,11 +1,9 @@
 package ourstudy.IntroductionToAlgorithms.ch4;
 
-import java.util.Arrays;
-import java.util.stream.IntStream;
-
 /**
  * Created by jwlee1 on 2017. 8. 6..
  */
+@SuppressWarnings("Duplicates")
 public class MaximumSubarray {
 
 	/**
@@ -15,21 +13,21 @@ public class MaximumSubarray {
 	 * @param right
 	 * @return
 	 */
-	public Indices findMaxSubArray(int[] array, int left, int right){
+	public MaximumSubarrayIndices findMaxSubArray(int[] array, int left, int right){
 		if(left == right){
-			return new Indices(left, right);
+			return new MaximumSubarrayIndices(left, right);
 		} else {
 			int mid= (left + right) / 2;
-			Indices leftMax = findMaxSubArray(array, left, mid);
-			Indices rightMax = findMaxSubArray(array, mid + 1, right);
-			Indices crossMax = findCrossMaxSubArray(array, left, mid, right);
+			MaximumSubarrayIndices leftMax = findMaxSubArray(array, left, mid);
+			MaximumSubarrayIndices rightMax = findMaxSubArray(array, mid + 1, right);
+			MaximumSubarrayIndices crossMax = findCrossMaxSubArray(array, left, mid, right);
 
 			return getMaxIndices(array, leftMax, rightMax, crossMax);
 		}
 	}
 
 
-	private Indices findCrossMaxSubArray(int[] array, int left, int mid, int right) {
+	private MaximumSubarrayIndices findCrossMaxSubArray(int[] array, int left, int mid, int right) {
 		int leftMaxSum = Integer.MIN_VALUE;
 		int sum = 0;
 		int maxLeft = mid;
@@ -40,7 +38,7 @@ public class MaximumSubarray {
 				maxLeft = i;
 			}
 		}
-		Indices maxL = new Indices(maxLeft, mid);
+		MaximumSubarrayIndices maxL = new MaximumSubarrayIndices(maxLeft, mid);
 
 		int rightMaxSum = Integer.MIN_VALUE;
 		sum = 0;
@@ -52,14 +50,14 @@ public class MaximumSubarray {
 				maxRight = i;
 			}
 		}
-		Indices maxR = new Indices(mid+1, maxRight);
-		Indices maxBoth = maxL.add(maxR);
+		MaximumSubarrayIndices maxR = new MaximumSubarrayIndices(mid+1, maxRight);
+		MaximumSubarrayIndices maxBoth = maxL.add(maxR);
 
-		return getMaxIndices(array, maxL, maxR, maxBoth);
+		return maxBoth;
 
 	}
 
-	private Indices getMaxIndices(int[] array, Indices maxL, Indices maxR, Indices maxBoth) {
+	private MaximumSubarrayIndices getMaxIndices(int[] array, MaximumSubarrayIndices maxL, MaximumSubarrayIndices maxR, MaximumSubarrayIndices maxBoth) {
 		if(maxL.sum(array) >= maxR.sum(array) && maxL.sum(array) >= maxBoth.sum(array)){
 			return maxL;
 		} else if(maxR.sum(array) >= maxL.sum(array) && maxR.sum(array) >= maxBoth.sum(array)){

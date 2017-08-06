@@ -5,19 +5,14 @@ import java.util.stream.IntStream;
 /**
  * Created by jwlee1 on 2017. 8. 6..
  */
-public class Indices{
+public class MaximumSubarrayIndices {
 	int start;
 	int end;
 
-	public Indices(){
-		start = 0;
-		end = 0;
-	}
-	public Indices(int s, int e){
+	public MaximumSubarrayIndices(int s, int e){
 		this.start = s;
 		this.end = e;
 	}
-
 
 	public int sum(int[] array){
 		return IntStream.rangeClosed(start, end).map(i -> array[i]).sum();
@@ -31,14 +26,14 @@ public class Indices{
 		return end;
 	}
 
-	public Indices add(Indices other){
+	public MaximumSubarrayIndices add(MaximumSubarrayIndices other){
 		int s = this.start <= other.start ? this.start : other.start;
 		int e = this.end >= other.end ? this.end : other.end;
-		return new Indices(s, e);
+		return new MaximumSubarrayIndices(s, e);
 	}
 
 	@Override public String toString() {
-		return "Indices{" +
+		return "MaximumSubarrayIndices{" +
 				"start=" + start +
 				", end=" + end +
 				'}';
