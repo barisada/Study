@@ -13,21 +13,21 @@ public class MaximumSubarray {
 	 * @param right
 	 * @return
 	 */
-	public MaximumSubarrayIndices findMaxSubArray(int[] array, int left, int right){
+	public Indices findMaxSubArrayIndices(int[] array, int left, int right){
 		if(left == right){
-			return new MaximumSubarrayIndices(left, right);
+			return new Indices(left, right);
 		} else {
 			int mid= (left + right) / 2;
-			MaximumSubarrayIndices leftMax = findMaxSubArray(array, left, mid);
-			MaximumSubarrayIndices rightMax = findMaxSubArray(array, mid + 1, right);
-			MaximumSubarrayIndices crossMax = findCrossMaxSubArray(array, left, mid, right);
+			Indices leftMax = findMaxSubArrayIndices(array, left, mid);
+			Indices rightMax = findMaxSubArrayIndices(array, mid + 1, right);
+			Indices crossMax = findCrossMaxSubArrayIndices(array, left, mid, right);
 
 			return getMaxIndices(array, leftMax, rightMax, crossMax);
 		}
 	}
 
 
-	private MaximumSubarrayIndices findCrossMaxSubArray(int[] array, int left, int mid, int right) {
+	private Indices findCrossMaxSubArrayIndices(int[] array, int left, int mid, int right) {
 		int leftMaxSum = Integer.MIN_VALUE;
 		int sum = 0;
 		int maxLeft = mid;
@@ -38,7 +38,7 @@ public class MaximumSubarray {
 				maxLeft = i;
 			}
 		}
-		MaximumSubarrayIndices maxL = new MaximumSubarrayIndices(maxLeft, mid);
+		Indices maxL = new Indices(maxLeft, mid);
 
 		int rightMaxSum = Integer.MIN_VALUE;
 		sum = 0;
@@ -50,14 +50,14 @@ public class MaximumSubarray {
 				maxRight = i;
 			}
 		}
-		MaximumSubarrayIndices maxR = new MaximumSubarrayIndices(mid+1, maxRight);
-		MaximumSubarrayIndices maxBoth = maxL.add(maxR);
+		Indices maxR = new Indices(mid+1, maxRight);
+		Indices maxBoth = maxL.add(maxR);
 
 		return maxBoth;
 
 	}
 
-	private MaximumSubarrayIndices getMaxIndices(int[] array, MaximumSubarrayIndices maxL, MaximumSubarrayIndices maxR, MaximumSubarrayIndices maxBoth) {
+	private Indices getMaxIndices(int[] array, Indices maxL, Indices maxR, Indices maxBoth) {
 		if(maxL.sum(array) >= maxR.sum(array) && maxL.sum(array) >= maxBoth.sum(array)){
 			return maxL;
 		} else if(maxR.sum(array) >= maxL.sum(array) && maxR.sum(array) >= maxBoth.sum(array)){

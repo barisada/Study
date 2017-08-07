@@ -5,11 +5,11 @@ import java.util.stream.IntStream;
 /**
  * Created by jwlee1 on 2017. 8. 6..
  */
-public class MaximumSubarrayIndices {
+public class Indices {
 	int start;
 	int end;
 
-	public MaximumSubarrayIndices(int s, int e){
+	public Indices(int s, int e){
 		this.start = s;
 		this.end = e;
 	}
@@ -26,14 +26,14 @@ public class MaximumSubarrayIndices {
 		return end;
 	}
 
-	public MaximumSubarrayIndices add(MaximumSubarrayIndices other){
+	public Indices add(Indices other){
 		int s = this.start <= other.start ? this.start : other.start;
 		int e = this.end >= other.end ? this.end : other.end;
-		return new MaximumSubarrayIndices(s, e);
+		return new Indices(s, e);
 	}
 
 	@Override public String toString() {
-		return "MaximumSubarrayIndices{" +
+		return "Indices{" +
 				"start=" + start +
 				", end=" + end +
 				'}';
