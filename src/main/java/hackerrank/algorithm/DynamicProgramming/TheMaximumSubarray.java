@@ -121,7 +121,7 @@ class Indices{
     }
 
     @Override public String toString() {
-        return "MaximumSubarrayIndices{" +
+        return "Indices{" +
                 "start=" + start +
                 ", end=" + end +
                 '}';
