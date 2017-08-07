@@ -1,6 +1,7 @@
 package ourstudy.IntroductionToAlgorithms.ch8;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
@@ -25,12 +26,15 @@ public class CountingSort {
             count[i] = count[i - 1] + count[i];
         });
 
-        for (int i : array) {
-            if (count[i] > 0) {
-                sorted[count[i] - 1] = i;
-                count[i]--;
-            }
+        //System.out.println("array : " + Arrays.stream(array).boxed().collect(Collectors.toList()));
+        //System.out.println("count : " + Arrays.stream(count).boxed().collect(Collectors.toList()));
+        for(int i = array.length - 1; i >=0; i--){
+            int countPos = array[i];
+            int sortedPos = count[countPos] - 1;
+            sorted[sortedPos] = array[i];
+            count[countPos]--;
         }
+
         return sorted;
     }
 }

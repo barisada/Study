@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
  */
 public class CountingSortClient {
     public static void main(String[] args) {
-        int[] input = {5,4,3,2,1,0};
+        int[] input = {5,4,3,2,1,0,5,6,6,6,6,6,10,7};
         CountingSort cs = new CountingSort();
         int[] arr = cs.sort(input);
         System.out.println(Arrays.stream(arr).boxed().collect(Collectors.toList()));
