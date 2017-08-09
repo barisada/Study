@@ -1,4 +1,4 @@
-package hackerrank.algorithm.DynamicProgramming;
+package hackerrank.algorithm.dynamicProgramming;
 
 import java.util.Scanner;
 import java.util.stream.IntStream;
