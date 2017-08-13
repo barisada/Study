@@ -14,6 +14,7 @@ public class RandomQuicksort {
 		if(left < right){
 			int pivot = p.randomPartition(array, left, right);
 			randomQuicksort(array, left, pivot-1);
+			randomQuicksort(array, pivot + 1, right);
 		}
 	}
 }
