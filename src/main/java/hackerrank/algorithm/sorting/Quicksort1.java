@@ -29,7 +29,7 @@ public class Quicksort1 {
 		int pivot = array[right];
 		int i = left;
 
-		for(; left < array.length; left++){
+		for(; left < right; left++){
 			if(array[left] <= pivot){
 				temp = array[left];
 				array[left] = array[i];
