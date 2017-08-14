@@ -1,7 +1,11 @@
 package ourstudy.IntroductionToAlgorithms.ch7;
 
+import org.springframework.util.StopWatch;
+
 import java.util.Arrays;
+import java.util.Random;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Created by jwlee1 on 2017. 8. 13..
@@ -12,13 +16,29 @@ public class QuicksortClient {
 		Partitioner p = new LomutoPartitioner();
 		Quicksort quicksort = new Quicksort(p);
 
-		int[] array = {2,8,7,1,3,5,6,4};
+		int size = 10_000;
+		int[] array = new int[size];
+		int[] array2 = new int[size];
+		IntStream.range(0, size).forEach(i ->{
+			int rand = new Random().nextInt(size);
+			array[size -1 - i] = rand;
+			array2[size -1 - i] = i;
+		});
+		StopWatch sw = new StopWatch("quick sort timer");
+		sw.start("default");
 		quicksort.quicksort(array, 0, array.length-1);
-		System.out.println(Arrays.stream(array).boxed().collect(Collectors.toList()) + " quicksort");
+		sw.stop();
+		//System.out.println(Arrays.stream(array).boxed().collect(Collectors.toList()) + " quicksort : " + sw.getLastTaskTimeMillis());
+		System.out.println("default quicksort : " + sw.getLastTaskTimeMillis());
 
-		int[] array2 = {8,7,6,5,4,3,2,1};
+
 		RandomQuicksort randomQuicksort = new RandomQuicksort(p);
+		sw.start("random quicksort");
 		randomQuicksort.randomQuicksort(array2, 0, array2.length-1);
-		System.out.println(Arrays.stream(array).boxed().collect(Collectors.toList()) + " rand quicksort");
+		sw.stop();
+		//System.out.println(Arrays.stream(array).boxed().collect(Collectors.toList()) + " rand quicksort : " + sw.getLastTaskTimeMillis());
+		System.out.println("random quicksort : " + sw.getLastTaskTimeMillis());
+
+		System.out.println(sw.prettyPrint());
 	}
 }
