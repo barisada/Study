@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class QuicksortClient {
 
 	public static void main(String[] args) {
-		Partitioner p = new DefaultPartitioner();
+		Partitioner p = new LomutoPartitioner();
 		Quicksort quicksort = new Quicksort(p);
 
 		int[] array = {2,8,7,1,3,5,6,4};

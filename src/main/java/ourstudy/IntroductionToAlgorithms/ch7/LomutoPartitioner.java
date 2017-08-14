@@ -6,7 +6,7 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * Created by jwlee1 on 2017. 8. 13..
  */
-public class DefaultPartitioner implements Partitioner{
+public class LomutoPartitioner implements Partitioner{
 	@Override public int partition(int[] array, int left, int right) {
 		int index = left;
 		int pivot = array[right];
