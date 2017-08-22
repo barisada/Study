@@ -1,4 +1,4 @@
-package ourstudy.IntroductionToAlgorithms.ch4;
+package ourstudy.clrs.ch4;
 
 import java.util.stream.IntStream;
 

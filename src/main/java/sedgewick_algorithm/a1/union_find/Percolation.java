@@ -170,7 +170,7 @@ public class Percolation {
 	// test client (optional)
 	public static void main(String[] args){
 		//In in = new In("/Users/jwlee1/drjava_work/percolation/input10-no.txt");
-		In in = new In("D:\\JW\\study\\coursera\\algorithm_part1\\percolation\\percolation-testing\\percolation\\input50.txt");
+		In in = new In("D:\\JW\\study\\coursera\\algorithm_part1\\percolation\\percolation-testing\\percolation\\greeting57.txt");
 		int n = in.readInt();         // n-by-n percolation system
 		Percolation p = new Percolation(n);
 		while (!in.isEmpty()) {

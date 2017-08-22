@@ -1,4 +1,4 @@
-package ourstudy.IntroductionToAlgorithms.ch6;
+package ourstudy.clrs.ch6;
 
 /**
  * Created by jw on 2017-08-02.

@@ -122,10 +122,10 @@ public class Deque<Item> implements Iterable<Item> {
     // unit testing (optional)
     public static void main(String[] args){
         Deque<Object> deque = new Deque<>();
-        deque.addLast(0);
-        deque.addFirst(1);
-        deque.removeLast();
-        deque.removeLast();
+        deque.addFirst("KYEUNXNEHF");
+        deque.addFirst("LZDEAPJOLO");
+        deque.addFirst("BEHOJMBJGG");
+        System.out.println("removed " + deque.removeFirst());
         printDeque(deque);
         System.out.println("size : " + deque.size());
 

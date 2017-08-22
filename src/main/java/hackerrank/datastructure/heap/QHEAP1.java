@@ -1,9 +1,7 @@
 package hackerrank.datastructure.heap;
 
-import ourstudy.IntroductionToAlgorithms.ch6.MinPriorityQueue;
+import ourstudy.clrs.ch6.MinPriorityQueue;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**

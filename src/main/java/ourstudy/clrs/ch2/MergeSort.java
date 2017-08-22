@@ -1,7 +1,4 @@
-package ourstudy.IntroductionToAlgorithms.ch2;
-
-import java.util.Arrays;
-import java.util.stream.Collectors;
+package ourstudy.clrs.ch2;
 
 /**
  * Created by jw on 2017-08-11.

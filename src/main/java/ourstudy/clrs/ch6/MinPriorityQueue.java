@@ -1,4 +1,4 @@
-package ourstudy.IntroductionToAlgorithms.ch6;
+package ourstudy.clrs.ch6;
 
 import java.util.ArrayList;
 import java.util.Arrays;

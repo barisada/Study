@@ -1,6 +1,6 @@
 package hackerrank.algorithm.sorting;
 
-import ourstudy.IntroductionToAlgorithms.ch8.CountingSort;
+import ourstudy.clrs.ch8.CountingSort;
 
 import java.util.Arrays;
 import java.util.Scanner;

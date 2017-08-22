@@ -1,4 +1,4 @@
-package ourstudy.IntroductionToAlgorithms.ch2;
+package ourstudy.clrs.ch2;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;

@@ -1,6 +1,5 @@
-package ourstudy.IntroductionToAlgorithms.ch7;
+package ourstudy.clrs.ch7;
 
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**

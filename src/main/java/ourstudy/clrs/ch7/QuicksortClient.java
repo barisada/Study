@@ -1,10 +1,8 @@
-package ourstudy.IntroductionToAlgorithms.ch7;
+package ourstudy.clrs.ch7;
 
 import org.springframework.util.StopWatch;
 
-import java.util.Arrays;
 import java.util.Random;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**

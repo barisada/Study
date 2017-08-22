@@ -1,7 +1,6 @@
-package ourstudy.IntroductionToAlgorithms.ch8;
+package ourstudy.clrs.ch8;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
