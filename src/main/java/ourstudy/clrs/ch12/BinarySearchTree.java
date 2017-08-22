@@ -31,12 +31,14 @@ public class BinarySearchTree {
         if(p.val >= tree.val){
             if(p.left == null){
                 p.left = tree;
+                tree.parent = p;
             } else {
                 walkAndInsertTree(p.left, tree);
             }
         } else {
             if(p.right == null){
                 p.right = tree;
+                tree.parent = p;
             } else {
                 walkAndInsertTree(p.right, tree);
             }
