@@ -45,6 +45,23 @@ public class BinarySearchTree {
         }
     }
 
+    /**
+     * BST sort = in-order traversal
+     * @return sorted List
+     */
+    public List<Integer> sort(){
+        List<Integer> list = new ArrayList<>();
+        inOrderTraversal(list, this);
+        return list;
+    }
+
+    private void inOrderTraversal(List<Integer> list, BinarySearchTree tree) {
+        if(tree == null) return;
+        inOrderTraversal(list, tree.left);
+        list.add(tree.val);
+        inOrderTraversal(list, tree.right);
+    }
+
     public void print(){
         Queue<BinarySearchTree> q = new LinkedList<>();
         q.add(this);

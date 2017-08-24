@@ -20,5 +20,6 @@ public class BSTClient {
         tree.insert(39);
         tree.insert(32);
         tree.print();
+        System.out.println("sorted = " + tree.sort());
     }
 }
