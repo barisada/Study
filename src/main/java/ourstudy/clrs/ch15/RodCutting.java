@@ -40,7 +40,7 @@ public class RodCutting {
 
 		for(int i = 1; i <= n; i++) {
 			int q = 0;
-			for (int j = 0; j <= i; j++) {
+			for (int j = 1; j <= i; j++) {
 				q = Math.max(q, (p[j] + r[i - j]));
 			}
 			//System.out.println(i + " : " + q);
