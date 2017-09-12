@@ -1,11 +1,6 @@
 package hackerrank.algorithm.recursion;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-import java.util.stream.IntStream;
-
-import static javafx.scene.input.KeyCode.M;
 
 /**
  * Created by jw on 2017-09-12.
