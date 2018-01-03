@@ -1,7 +1,7 @@
 package leetcode.medium;
 
 /**
- * Created by jwlee1 on 2018-01-03.
+ *
  */
 public class AddTwoNumbers {
     /**
