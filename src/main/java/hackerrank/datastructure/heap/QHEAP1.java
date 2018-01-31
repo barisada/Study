@@ -1,6 +1,6 @@
 package hackerrank.datastructure.heap;
 
-import ourstudy.clrs.ch6.MinPriorityQueue;
+import books.clrs.ch6.MinPriorityQueue;
 
 import java.util.Scanner;
 
