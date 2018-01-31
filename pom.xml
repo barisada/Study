@@ -19,6 +19,14 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>edu.princeton.cs.algs4</groupId>
+      <artifactId>algs4</artifactId>
+      <version>1.0.0</version>
+      <type>jar</type>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/src/main/resources/jar/algs4.jar</systemPath>
+    </dependency>
     <!-- Spring 4 dependencies -->
     <dependency>
       <groupId>org.springframework</groupId>
