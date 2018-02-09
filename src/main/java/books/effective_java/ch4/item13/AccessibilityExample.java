@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class AccessorExample {
+public class AccessibilityExample {
 
     private Object privateAccessor;
     Object defaultAccessor;
@@ -30,7 +30,7 @@ public class AccessorExample {
             e.printStackTrace();
         }
 
-        Object[] cloneObj = AccessorExample.getGoodValues();
+        Object[] cloneObj = AccessibilityExample.getGoodValues();
         cloneObj[0] = "new";
         System.out.println(Arrays.asList(cloneObj));
 
