@@ -1,4 +1,4 @@
-package books.effective_java.ch4.item21;
+package books.effective_java.ch4.item21_22;
 
 import java.io.Serializable;
 import java.util.Comparator;
