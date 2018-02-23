@@ -37,7 +37,6 @@ public class ListWithGenericExample {
             snapshot = new ArrayList<>(list);
         }
         E result = initVal;
-        int i = 0;
         for(E e : snapshot){
             result = f.apply(result, e);
             int temp = Integer.valueOf(e.toString());
