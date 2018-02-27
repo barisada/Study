@@ -35,4 +35,11 @@ public class StackWithGenericExample<E> {
         }
     }
 
+    @Override
+    public String toString() {
+        return "StackWithGenericExample{" +
+                "elements=" + Arrays.toString(elements) +
+                ", size=" + size +
+                '}';
+    }
 }
