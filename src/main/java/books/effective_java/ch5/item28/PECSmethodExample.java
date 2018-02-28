@@ -29,7 +29,7 @@ public class PECSmethodExample {
         service1.shutdown();
 
         ScheduledFuture<?> max = max(list);
-        System.out.println("max deplay schedule: " + max.get());
+        System.out.println("max delayed schedule: " + max.get());
     }
 
 }
