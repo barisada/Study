@@ -9,7 +9,7 @@ public class HeterogeneousContainerTest {
     public static void main(String[] args) {
         HeterogeneousContainerExample container = new HeterogeneousContainerExample();
         container.putFavorite(String.class, "favorite string");
-        container.putFavorite(Integer.class, 777);
+        container.putFavorite(Integer.class, 0xcafebabe);
         container.putFavorite(Class.class, HeterogeneousContainerExample.class);
 
         String favoriteString = container.getFavorite(String.class);
