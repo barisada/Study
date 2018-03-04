@@ -14,6 +14,7 @@ public enum EnumInstanceFieldExample {
         return numOfMusician;
     }
 
+
     public static void main(String[] args) {
         for(EnumInstanceFieldExample ex : EnumInstanceFieldExample.values()){
             System.out.println(ex + " instance field value : " + ex.numberOfMusicians()
