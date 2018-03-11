@@ -25,7 +25,7 @@ public class RecursiveTypeBoundExample {
 
 
         //Cannot use max method class does not impl Comparable class...
-        List<RecursiveTypeBoundExample> list3 = new ArrayList<>(){
+        List<RecursiveTypeBoundExample> list3 = new ArrayList<RecursiveTypeBoundExample>(){
             {
                 this.add(new RecursiveTypeBoundExample());
                 this.add(new RecursiveTypeBoundExample());

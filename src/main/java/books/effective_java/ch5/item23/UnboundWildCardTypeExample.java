@@ -15,14 +15,14 @@ public class UnboundWildCardTypeExample {
 
     public static void main(String[] args) {
         int result = numElementInCommon(
-                new HashSet<>(){
+                new HashSet<Integer>(){
                     {
                         this.add(1);
                         this.add(2);
                         this.add(3);
                     }
                 },
-                new HashSet<>() {
+                new HashSet<Object>() {
                     {
                         this.add(1);
                         this.add("2");
