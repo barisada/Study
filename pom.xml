@@ -12,8 +12,8 @@
 
   <repositories>
     <repository>
-      <id>java.net</id>
-      <url>https://maven.java.net/content/repositories/public/</url>
+      <id>mvnrepository</id>
+      <url>https://mvnrepository.com</url>
     </repository>
   </repositories>
 
