@@ -134,9 +134,15 @@ public class Point implements Comparable<Point> {
 	 */
 	public static void main(String[] args) {
         /* YOUR CODE HERE */
-		Point p1 = new Point(1,1);
-		p1.drawTo(new Point(3,3));
-
-		System.out.println(p1.slopeTo(new Point(4,4)));
+		Point p1 = new Point(9000,9000);
+		Point p2 = new Point(8000,8000);
+		Point p3 = new Point(7000,7000);
+		Point p4 = new Point(6000,6000);
+		Point p5 = new Point(5000,5000);
+		Point p6 = new Point(4000,4000);
+		Point p7 = new Point(3000,3000);
+		Point p8 = new Point(2000,2000);
+		Point[] points = {p1,p2,p3,p4,p5,p6,p7,p8};
+		BruteCollinearPoints bcp = new BruteCollinearPoints(points);
 	}
 }
