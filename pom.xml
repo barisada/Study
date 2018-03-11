@@ -10,13 +10,6 @@
     <version>1.5.10.RELEASE</version>
   </parent>
 
-  <repositories>
-    <repository>
-      <id>mvnrepository</id>
-      <url>https://mvnrepository.com</url>
-    </repository>
-  </repositories>
-
   <properties>
     <spring.version>4.3.14.RELEASE</spring.version>
     <hsqldb.version>2.3.2</hsqldb.version>
