@@ -7,7 +7,7 @@ package books.effective_java.ch7.item44;
  *
  *
  */
-public class UseCommentEveryTIme<K, V>{
+public class WriteCommentEveryTIme<K, V>{
 
     /**
      * method....do nothing
