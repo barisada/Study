@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * Created by jw on 2018-03-29.
+ * Created on 2018-03-29.
  */
 public final class KnowAndUseLibrariesExample {
 

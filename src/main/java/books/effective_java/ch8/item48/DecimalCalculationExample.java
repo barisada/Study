@@ -3,7 +3,7 @@ package books.effective_java.ch8.item48;
 import java.math.BigDecimal;
 
 /**
- * Created by jw on 2018-03-29.
+ * Created on 2018-03-29.
  */
 public final class DecimalCalculationExample {
 
