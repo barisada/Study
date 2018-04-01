@@ -4,7 +4,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * Created by jwlee1 on 2018. 3. 11..
  */
 public class RunMyExceptionsTest {
 	public static void main(String[] args) {
