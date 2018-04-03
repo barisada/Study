@@ -18,15 +18,17 @@ public class UseExceptionExample {
             System.out.println("bad exception use case");
             e.printStackTrace();
         }
+        //continue logic....
     }
 
     public static void goodExceptionCase(){
         List<Integer> list = Arrays.asList(1,2,3,4,5);
         Iterator<Integer> it = list.iterator();
         try {
-            while (true) {
+            while (it.hasNext()) {
                 it.next();
             }
+            it.next();
         } catch (NoSuchElementException e){
             System.out.println("good exception use case");
             e.printStackTrace();
