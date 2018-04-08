@@ -13,19 +13,29 @@ public class DocumentExceptionExample {
      * </PRE>
      * @throws FeelSoBadException
      */
-    public static void documentedException() throws FeelSoBadException {
+    public static void documentedCheckedException() throws FeelSoBadException {
         throw new FeelSoBadException();
+    }
+
+    /**
+     * this just throws NPE.
+     * @throws NullPointerException
+     */
+    public static void documentedUncheckedException(){
+        throw new NullPointerException();
     }
 
     public static void main(String[] args){
         try {
-            documentedException();
+            documentedCheckedException();
         } catch (FeelSoBadException e) {
-            throw new RuntimeException(e);
+           e.printStackTrace();
         }
+        documentedUncheckedException();
     }
 }
 
 class FeelSoBadException extends Exception{
 
 }
+
