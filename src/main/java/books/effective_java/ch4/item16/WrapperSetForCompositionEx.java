@@ -3,7 +3,7 @@ package books.effective_java.ch4.item16;
 import java.util.Collection;
 import java.util.Set;
 
-public class WrapperSetForCompositionEx<E> extends FowardingSet<E> {
+public class WrapperSetForCompositionEx<E> extends ForwardingSet<E> {
     private int addCount = 0;
 
     public WrapperSetForCompositionEx(Set<E> s){
