@@ -3,7 +3,6 @@ package books.effective_java.ch10.item69;
 import org.springframework.util.StopWatch;
 
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created on 2018-04-17.
