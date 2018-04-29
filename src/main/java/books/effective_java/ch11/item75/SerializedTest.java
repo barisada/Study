@@ -12,13 +12,13 @@ public class SerializedTest {
 		DefaultSerializedExample defaultEx = new DefaultSerializedExample();
 		defaultEx.setFirstName("first");
 		defaultEx.setLastName("last");
+		defaultEx.setFriends(Arrays.asList("Sam", "Smith", "Marry", "Kevin"));
 
 		serializedTest(defaultEx, DefaultSerializedExample.class);
 
 
 		CustomSerializedExample customEx = new CustomSerializedExample();
 		customEx.setName("John");
-		customEx.setNumOfFriends(6);
 		customEx.setFriends(Arrays.asList("Sam", "Smith", "Marry", "Kevin"));
 		serializedTest(customEx, CustomSerializedExample.class);
 	}
