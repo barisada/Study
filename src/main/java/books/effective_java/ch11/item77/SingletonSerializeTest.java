@@ -11,20 +11,20 @@ public class SingletonSerializeTest {
         SingletonWithReadReadResolve readResolveEx = SingletonWithReadReadResolve.INSTANCE;
         SingletonEnumExample singletonEnumEx = SingletonEnumExample.INSTANCE;   //the most preferred approach.
 
-        compareSingletonWithSerialize(ex1);
-        compareSingletonWithSerialize(readResolveEx);
-        compareSingletonWithSerialize(singletonEnumEx);
+        compareSingletonWithDeserialize(ex1);
+        compareSingletonWithDeserialize(readResolveEx);
+        compareSingletonWithDeserialize(singletonEnumEx);
 
     }
 
-    private static <T> void compareSingletonWithSerialize(T ex1) throws IOException, ClassNotFoundException {
-        byte[] serialized = seriailze(ex1);
+    private static <T> void compareSingletonWithDeserialize(T ex1) throws IOException, ClassNotFoundException {
+        byte[] serialized = serialize(ex1);
         T ex2 = deserialize(serialized, ex1.getClass());
 
         System.out.println("ex1(" + ex1.hashCode() + ") vs ex2(" + ex2.hashCode() + ") = " + (ex1 == ex2));
     }
 
-    private static <T> byte[] seriailze(T obj) throws IOException {
+    private static <T> byte[] serialize(T obj) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(baos);
         oos.writeObject(obj);
