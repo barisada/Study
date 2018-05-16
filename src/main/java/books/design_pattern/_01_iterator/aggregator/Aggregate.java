@@ -1,4 +1,4 @@
-package books.design_pattern._01_iterator;
+package books.design_pattern._01_iterator.aggregator;
 
 import java.util.Iterator;
 

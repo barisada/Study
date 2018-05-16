@@ -1,4 +1,7 @@
-package books.design_pattern._01_iterator;
+package books.design_pattern._01_iterator.iterator;
+
+import books.design_pattern._01_iterator.aggregator.BookShelf;
+import books.design_pattern._01_iterator.model.Book;
 
 import java.util.Iterator;
 
@@ -21,6 +24,6 @@ public class BookShelfIterator implements Iterator<Book> {
 
     @Override
     public Book next() {
-        return bookShelf.getBook(++index);
+        return bookShelf.getBook(index++);
     }
 }

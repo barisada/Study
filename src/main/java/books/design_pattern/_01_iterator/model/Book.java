@@ -1,4 +1,4 @@
-package books.design_pattern._01_iterator;
+package books.design_pattern._01_iterator.model;
 
 /**
  * Created on 2018-05-15.

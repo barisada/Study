@@ -1,4 +1,7 @@
-package books.design_pattern._01_iterator;
+package books.design_pattern._01_iterator.aggregator;
+
+import books.design_pattern._01_iterator.model.Book;
+import books.design_pattern._01_iterator.iterator.BookShelfIterator;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -23,7 +26,7 @@ public class BookShelf implements Aggregate<Book> {
         if(books.length - 1 == last){
             books = Arrays.copyOf(books, (last * 2) + 1);
         }
-        books[++last] = book;
+        books[last++] = book;
     }
 
     public int getSize(){
