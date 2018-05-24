@@ -8,4 +8,4 @@
  - GoF recommended not override 'Template Method'
  
 ### 3. Java8 and Template Method Pattern
- - since java8 introduced 'default' method 'Template Method' can be used not only abstract class but also Interface
+ - since java8 introduced 'default' method, 'Template Method' can be used not only abstract class but also Interface
