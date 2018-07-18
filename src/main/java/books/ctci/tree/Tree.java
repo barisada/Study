@@ -4,15 +4,10 @@ public class Tree {
     private int val;
     private Tree left;
     private Tree right;
+    private boolean visited;
 
     public Tree(int val) {
         this.val = val;
-    }
-
-    public Tree(int val, Tree left, Tree right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
     }
 
     public int getVal() {
@@ -37,5 +32,18 @@ public class Tree {
 
     public void setRight(Tree right) {
         this.right = right;
+    }
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+
+    private int depth(Tree tree) {
+        if(tree == null) return 0;
+        return 1 + Math.max( depth(tree.getLeft()), depth(tree.getRight()) );
     }
 }

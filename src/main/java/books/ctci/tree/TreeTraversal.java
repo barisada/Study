@@ -48,7 +48,7 @@ public class TreeTraversal {
      *    null  null  null null    null null      7   null
      * @return
      */
-    private Tree createSampleTree(){
+    public Tree createSampleTree(){
         Tree tree1 = new Tree(1);
         Tree tree2 = new Tree(2);
         Tree tree3 = new Tree(3);
