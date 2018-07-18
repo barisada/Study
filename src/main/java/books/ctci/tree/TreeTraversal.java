@@ -19,6 +19,17 @@ public class TreeTraversal {
         }
     }
 
+    public List<Integer> getInOrderList() {
+        return inOrderList;
+    }
+
+    public List<Integer> getPreOrderList() {
+        return preOrderList;
+    }
+
+    public List<Integer> getPostOrderList() {
+        return postOrderList;
+    }
 
     public static void main(String[] args) {
         TreeTraversal treeTraversal = new TreeTraversal();
