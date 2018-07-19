@@ -46,4 +46,11 @@ public class Tree {
         if(tree == null) return 0;
         return 1 + Math.max( depth(tree.getLeft()), depth(tree.getRight()) );
     }
+
+    @Override
+    public String toString() {
+        return "Tree{" +
+                "val=" + val +
+                '}';
+    }
 }
