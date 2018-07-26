@@ -1,4 +1,4 @@
-package ourstudy.kakao.test.answers;
+package tmonstudy.kakao.test.answers;
 
 import java.util.*;
 import java.util.stream.Collectors;

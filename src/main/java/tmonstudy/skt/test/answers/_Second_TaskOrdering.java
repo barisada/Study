@@ -1,4 +1,4 @@
-package ourstudy.skt.test.answers;
+package tmonstudy.skt.test.answers;
 
 import java.util.*;
 import java.util.stream.Collectors;

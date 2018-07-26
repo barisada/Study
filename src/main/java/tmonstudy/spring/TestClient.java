@@ -1,13 +1,13 @@
-package ourstudy.spring;
+package tmonstudy.spring;
 
 import org.springframework.aop.framework.ProxyFactoryBean;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
-import ourstudy.spring.aop.TestConfig;
-import ourstudy.spring.aop.proxy.TxHandler;
-import ourstudy.spring.aop.proxy.TxProxyFactoryBean;
-import ourstudy.spring.aop.service.ConcreteService;
-import ourstudy.spring.aop.service.SomeService;
+import tmonstudy.spring.aop.TestConfig;
+import tmonstudy.spring.aop.proxy.TxHandler;
+import tmonstudy.spring.aop.proxy.TxProxyFactoryBean;
+import tmonstudy.spring.aop.service.ConcreteService;
+import tmonstudy.spring.aop.service.SomeService;
 
 import java.lang.reflect.Proxy;
 

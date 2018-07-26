@@ -1,4 +1,4 @@
-package ourstudy.spring.aop.proxy;
+package tmonstudy.spring.aop.proxy;
 
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
