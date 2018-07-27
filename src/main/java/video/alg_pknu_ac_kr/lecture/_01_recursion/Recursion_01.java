@@ -1,6 +1,6 @@
 package video.alg_pknu_ac_kr.lecture._01_recursion;
 
-public class Lecture_01_Recursion {
+public class Recursion_01 {
     public static void main(String[] args) {
         int i = 4;
         func(i);
