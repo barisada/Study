@@ -1,5 +1,8 @@
 package video.alg_pknu_ac_kr.lecture._01_recursion;
 
+/**
+ * What is Recursion?
+ */
 public class Recursion_01 {
     public static void main(String[] args) {
         int i = 4;
