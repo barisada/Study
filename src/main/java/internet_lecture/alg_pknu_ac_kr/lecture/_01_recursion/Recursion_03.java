@@ -1,6 +1,5 @@
-package video.alg_pknu_ac_kr.lecture._01_recursion;
+package internet_lecture.alg_pknu_ac_kr.lecture._01_recursion;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
