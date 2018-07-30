@@ -1,4 +1,4 @@
-package internet_lecture.alg_pknu_ac_kr.lecture._02_sort;
+package internet_lecture.alg_pknu_ac_kr.lecture._03_sort;
 
 import org.springframework.util.StopWatch;
 
@@ -8,7 +8,7 @@ import java.util.Random;
 public class Sort_01 {
     public static void main(String[] args) {
         Random rand = new Random();
-        int size = 50_000;
+        int size = 10_000;
         int[] data = new int[size];
         for(int i = 0; i < size; i++){
             data[i] = rand.nextInt(size);
@@ -38,6 +38,13 @@ public class Sort_01 {
         sw.start("merge sort");
         Sort_02_Merge_Sort.mergeSort(data4);
         System.out.println("merge sort     : " + Arrays.toString(data4));
+        sw.stop();
+
+        int[] data5 = Arrays.copyOf(data, size);
+        sw.start("quick sort");
+        Sort_03_QuickSort.quickSort(data5);
+        System.out.println("quick sort     : " + Arrays.toString(data5));
+        sw.stop();
 
         System.out.println(sw.prettyPrint());
     }
