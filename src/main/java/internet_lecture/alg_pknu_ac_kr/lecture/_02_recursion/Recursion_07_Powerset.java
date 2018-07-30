@@ -1,4 +1,4 @@
-package internet_lecture.alg_pknu_ac_kr.lecture._01_recursion;
+package internet_lecture.alg_pknu_ac_kr.lecture._02_recursion;
 
 /**
  * 멱집합은 구하는 방법은
