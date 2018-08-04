@@ -8,7 +8,7 @@ import java.util.Random;
 public class Sort_01 {
     public static void main(String[] args) {
         Random rand = new Random();
-        int size = 10_000;
+        int size = 50_000;
         int[] data = new int[size];
         for(int i = 0; i < size; i++){
             data[i] = rand.nextInt(size);
@@ -44,6 +44,12 @@ public class Sort_01 {
         sw.start("quick sort");
         Sort_03_QuickSort.quickSort(data5);
         System.out.println("quick sort     : " + Arrays.toString(data5));
+        sw.stop();
+
+        int[] data6 = Arrays.copyOf(data, size);
+        sw.start("heap sort");
+        Sort_04_05_06_HeapSort.heapSort(data6);
+        System.out.println("heap sort      : " + Arrays.toString(data6));
         sw.stop();
 
         System.out.println(sw.prettyPrint());
