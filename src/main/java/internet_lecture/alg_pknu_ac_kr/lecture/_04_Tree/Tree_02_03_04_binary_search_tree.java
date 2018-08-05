@@ -3,7 +3,7 @@ package internet_lecture.alg_pknu_ac_kr.lecture._04_Tree;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tree_02_binary_search_tree {
+public class Tree_02_03_04_binary_search_tree {
     public static void main(String[] args) {
         Node root = new Node(15);
         BinarySearchTree bst = new BinarySearchTree(root);
