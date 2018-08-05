@@ -1,4 +1,4 @@
-package tmonstudy.spring.aop.proxy;
+package groupstudy.spring.aop.proxy;
 
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;

@@ -1,4 +1,4 @@
-package tmonstudy.spring.aop.service;
+package groupstudy.spring.aop.service;
 
 
 import org.springframework.transaction.PlatformTransactionManager;

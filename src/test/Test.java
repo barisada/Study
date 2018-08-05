@@ -13,6 +13,7 @@ public class Test {
 		return doSearch(arr, target, 0, arr.length);
 	}
 
+
 	private static boolean doSearch(int[] arr, int target, int left, int right) {
 		if(left >= right){
 			return target == arr[left];

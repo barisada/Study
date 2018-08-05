@@ -1,4 +1,4 @@
-package tmonstudy.ㅋ사.test.answers;
+package groupstudy.ㅋ사.test.answers;
 
 import java.util.Scanner;
 

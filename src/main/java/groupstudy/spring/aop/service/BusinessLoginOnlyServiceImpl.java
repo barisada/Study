@@ -1,4 +1,4 @@
-package tmonstudy.spring.aop.service;
+package groupstudy.spring.aop.service;
 
 /**
  * Created by jw on 2017-07-27.

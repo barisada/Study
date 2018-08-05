@@ -1,4 +1,4 @@
-package tmonstudy.ㅅㅋ.test.answers;
+package groupstudy.ㅅㅋ.test.answers;
 
 import java.util.*;
 
