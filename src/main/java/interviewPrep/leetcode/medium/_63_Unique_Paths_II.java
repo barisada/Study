@@ -37,6 +37,6 @@ public class _63_Unique_Paths_II {
         grid[1] = row2;
         grid[2] = row3;
         grid[3] = row4;
-        up2.uniquePathsWithObstacles(grid);
+        System.out.println(up2.uniquePathsWithObstacles(grid));
     }
 }
