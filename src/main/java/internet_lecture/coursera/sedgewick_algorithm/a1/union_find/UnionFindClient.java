@@ -1,4 +1,4 @@
-package sedgewick_algorithm.a1.union_find;
+package internet_lecture.coursera.sedgewick_algorithm.a1.union_find;
 
 import java.util.Arrays;
 import java.util.List;

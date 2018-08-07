@@ -1,4 +1,4 @@
-package sedgewick_algorithm.a3.sort;
+package internet_lecture.coursera.sedgewick_algorithm.a3.sort;
 
 /**
  * Created by jwlee1 on 2017. 6. 18..

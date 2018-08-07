@@ -1,4 +1,4 @@
-package sedgewick_algorithm.graph;
+package internet_lecture.coursera.sedgewick_algorithm.graph;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -1,4 +1,4 @@
-package sedgewick_algorithm.graph;
+package internet_lecture.coursera.sedgewick_algorithm.graph;
 
 /**
  * Created by jwlee1 on 2017. 7. 12..

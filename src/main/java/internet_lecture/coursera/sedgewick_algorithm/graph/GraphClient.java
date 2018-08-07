@@ -1,9 +1,6 @@
-package sedgewick_algorithm.graph;
-
-import sedgewick_algorithm.bigraph.Bigraph;
+package internet_lecture.coursera.sedgewick_algorithm.graph;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;

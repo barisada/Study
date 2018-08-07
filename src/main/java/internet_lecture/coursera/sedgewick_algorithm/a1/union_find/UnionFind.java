@@ -1,4 +1,4 @@
-package sedgewick_algorithm.a1.union_find;
+package internet_lecture.coursera.sedgewick_algorithm.a1.union_find;
 
 /**
  * Created by jw on 2017-04-10.

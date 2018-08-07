@@ -1,4 +1,4 @@
-package sedgewick_algorithm.a2.datastructure;
+package internet_lecture.coursera.sedgewick_algorithm.a2.datastructure;
 
 import edu.princeton.cs.algs4.StdRandom;
 

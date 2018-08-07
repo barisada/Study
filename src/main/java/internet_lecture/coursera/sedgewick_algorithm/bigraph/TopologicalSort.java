@@ -1,4 +1,4 @@
-package sedgewick_algorithm.bigraph;
+package internet_lecture.coursera.sedgewick_algorithm.bigraph;
 
 import java.util.List;
 import java.util.Stack;

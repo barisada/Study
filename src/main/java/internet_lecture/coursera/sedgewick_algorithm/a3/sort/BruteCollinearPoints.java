@@ -1,4 +1,4 @@
-package sedgewick_algorithm.a3.sort;
+package internet_lecture.coursera.sedgewick_algorithm.a3.sort;
 
 import java.util.*;
 import java.util.stream.Collectors;

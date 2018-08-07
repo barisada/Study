@@ -1,4 +1,4 @@
-package sedgewick_algorithm.a1.union_find;
+package internet_lecture.coursera.sedgewick_algorithm.a1.union_find;
 
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
