@@ -20,16 +20,17 @@ public class _4_8_FirstCommonAncestor {
     }
 
     public static Tree firstCommonAncestorHelper(Tree tree, Tree p, Tree q){
-                boolean pExist = findTree(tree.getLeft(), p);
-                boolean qExist = findTree(tree.getLeft(), q);
+        if(tree.getVal() == p.getVal() || tree.getVal() == q.getVal()) return tree;
+        boolean pExist = findTree(tree.getLeft(), p);
+        boolean qExist = findTree(tree.getLeft(), q);
 
-                if(pExist != qExist){
-                    return tree;
-                }
+        if(pExist != qExist){
+            return tree;
+        }
 
-                Tree next = pExist ? tree.getLeft() : tree.getRight();
+        Tree next = pExist ? tree.getLeft() : tree.getRight();
 
-                return firstCommonAncestorHelper(next, p, q);
+        return firstCommonAncestorHelper(next, p, q);
 
     }
 
@@ -50,18 +51,19 @@ public class _4_8_FirstCommonAncestor {
         Tree tree7 = new Tree(7);
         Tree tree8 = new Tree(8);
         Tree tree9 = new Tree(9);
-        Tree tree10 = new Tree(-1);
+        Tree tree0 = new Tree(0);
 
-        tree.setLeft(tree2);
-        tree.setRight(tree3);
-        tree2.setLeft(tree4);
-        tree2.setRight(tree5);
-        tree3.setLeft(tree6);
-        tree3.setRight(tree7);
-        tree4.setLeft(tree8);
-        tree5.setLeft(tree9);
 
-        System.out.println(firstCommonAncestor(tree, tree8, tree3));
+        tree3.setLeft(tree5);
+        tree3.setRight(tree);
+        tree5.setLeft(tree6);
+        tree5.setRight(tree2);
+        tree.setLeft(tree0);
+        tree.setRight(tree8);
+        tree2.setLeft(tree7);
+        tree2.setRight(tree4);
+
+        System.out.println(firstCommonAncestor(tree3, tree5, tree4));
     }
 
 }
