@@ -22,6 +22,7 @@ public class Problem_04 {
         int[] smokeTest4 = {-2,-3,0,1,2,3,4,5,6,7,8,9,11,1,22,3,4,5,6,5,7,8,9,2,2,2,2,2,2,3,4,5,6,7};
         int[] smokeTest5 = {};
         int[] smokeTest6 = {0};
+        int[] smokeTest7 = {2345,243,5245,24,5243,524,1,2,6,6,234,6234,7,42437};
 
         System.out.println(findLowestPositiveMissingInteger(smokeTest1));
         System.out.println(findLowestPositiveMissingInteger(smokeTest2));
@@ -29,6 +30,8 @@ public class Problem_04 {
         System.out.println(findLowestPositiveMissingInteger(smokeTest4));
         System.out.println(findLowestPositiveMissingInteger(smokeTest5));
         System.out.println(findLowestPositiveMissingInteger(smokeTest6));
+        System.out.println(findLowestPositiveMissingInteger(smokeTest7));
+
 
         Assert.isTrue(2 == findLowestPositiveMissingInteger(smokeTest1), "failed to return 2");
         Assert.isTrue(3 == findLowestPositiveMissingInteger(smokeTest2), "failed to return 3");
@@ -36,6 +39,7 @@ public class Problem_04 {
         Assert.isTrue(10 == findLowestPositiveMissingInteger(smokeTest4), "failed to return 10");
         Assert.isTrue(1 == findLowestPositiveMissingInteger(smokeTest5), "failed to return 1");
         Assert.isTrue(1 == findLowestPositiveMissingInteger(smokeTest6), "failed to return 1");
+        Assert.isTrue(3 == findLowestPositiveMissingInteger(smokeTest7), "failed to return 3");
 
 
     }
@@ -43,18 +47,17 @@ public class Problem_04 {
     // o(n) approach
     private static int findLowestPositiveMissingInteger(int[] arr) {
         if(arr==null || arr.length==0) return 1;
-        int n = arr.length;
-        for(int i=0;i<n;i++){
-            while(arr[i]>0  && arr[i]<=n && arr[i]!=arr[arr[i]-1]) {
-                swap(arr, i, arr[i]-1);
+        int len = arr.length;
+        for(int i = 0; i < len; i++){
+            int cur = arr[i];
+            while(cur > 0 && cur <= len && cur != arr[cur - 1]){
+                swap(arr, i, cur - 1);
             }
         }
-        for(int i=0; i<arr.length; i++) {
-            if(arr[i]!=i+1) {
-                return i+1;
-            }
+        for(int i = 0; i < len; i ++){
+            if(arr[i] != i + 1) return i + 1;
         }
-        return n+1;
+        return len + 1;
     }
 
     private static void swap(int[] arr, int i, int j) {
