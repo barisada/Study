@@ -29,15 +29,15 @@ public class Problem_08 {
         int[] result = new int[1];
         isUnival(root, result);
         return result[0];
-    }
+}
 
     private boolean isUnival(TreeNode node, int[] count) {
         if(node == null) return true;
         boolean left = isUnival(node.left, count);
-        boolean right =  isUnival(node.right, count);
+        boolean right = isUnival(node.right, count);
         if(left && right
                 && (node.left == null || node.left.val == node.val)
-                && (node.right == null ||node.right.val == node.val)){
+                && (node.right == null || node.right.val == node.val)){
             count[0]++;
             return true;
         }
