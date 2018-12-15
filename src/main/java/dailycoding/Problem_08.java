@@ -23,8 +23,6 @@ public class Problem_08 {
         System.out.println("test 2 (should be 3) : " + test.univalTree(test2));
     }
 
-
-
     public int univalTree(TreeNode root){
         int[] result = new int[1];
         isUnival(root, result);
