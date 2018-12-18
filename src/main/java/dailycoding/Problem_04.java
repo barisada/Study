@@ -23,6 +23,7 @@ public class Problem_04 {
         int[] smokeTest5 = {};
         int[] smokeTest6 = {0};
         int[] smokeTest7 = {2345,243,5245,24,5243,524,1,2,6,6,234,6234,7,42437};
+        int[] smokeTest8 = {1,2,3,4,5};
 
         System.out.println(findLowestPositiveMissingInteger(smokeTest1));
         System.out.println(findLowestPositiveMissingInteger(smokeTest2));
@@ -31,6 +32,7 @@ public class Problem_04 {
         System.out.println(findLowestPositiveMissingInteger(smokeTest5));
         System.out.println(findLowestPositiveMissingInteger(smokeTest6));
         System.out.println(findLowestPositiveMissingInteger(smokeTest7));
+        System.out.println(findLowestPositiveMissingInteger(smokeTest8));
 
 
         Assert.isTrue(2 == findLowestPositiveMissingInteger(smokeTest1), "failed to return 2");
@@ -40,6 +42,7 @@ public class Problem_04 {
         Assert.isTrue(1 == findLowestPositiveMissingInteger(smokeTest5), "failed to return 1");
         Assert.isTrue(1 == findLowestPositiveMissingInteger(smokeTest6), "failed to return 1");
         Assert.isTrue(3 == findLowestPositiveMissingInteger(smokeTest7), "failed to return 3");
+        Assert.isTrue(6 == findLowestPositiveMissingInteger(smokeTest8), "failed to return 6");
 
 
     }
@@ -47,17 +50,17 @@ public class Problem_04 {
     // o(n) approach
     private static int findLowestPositiveMissingInteger(int[] arr) {
         if(arr==null || arr.length==0) return 1;
-        int len = arr.length;
-        for(int i = 0; i < len; i++){
+        for(int i = 0 ; i < arr.length; i++){
             int cur = arr[i];
-            while(cur > 0 && cur <= len && cur != arr[cur - 1]){
+            while(cur > 0 && cur < arr.length && cur != arr[cur - 1]){
                 swap(arr, i, cur - 1);
             }
         }
-        for(int i = 0; i < len; i ++){
+
+        for(int i = 0; i < arr.length; i++){
             if(arr[i] != i + 1) return i + 1;
         }
-        return len + 1;
+        return arr.length + 1;
     }
 
     private static void swap(int[] arr, int i, int j) {

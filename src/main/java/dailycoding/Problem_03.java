@@ -25,19 +25,19 @@ public class Problem_03 {
     }
 
     private static int[] productArrayExceptSelf(int[] arr) {
-        int[] result = new int[arr.length];
+        int len = arr.length;
+        int[] result = new int[len];
         result[0] = 1;
-        for(int i = 1; i < arr.length; i++){
-            result[i] = result[i - 1] * arr[i - 1];
-            System.out.println(Arrays.toString(result));
+        for(int i = 1; i < len;i++){
+            result[i] = result[i - 1] * arr[i -1];
         }
-        System.out.println("-----------------");
-        int right = 1;
-        for(int i = arr.length - 1; i >=0; i--){
-            result[i] *= right;
-            right *= arr[i];
-            System.out.println(Arrays.toString(result) + ", right : " + right);
+
+        int multiplier = 1;
+        for(int i = len - 1; i >=0; i--){
+            result[i] *= multiplier;
+            multiplier *= arr[i];
         }
+
         return result;
     }
 
