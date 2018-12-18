@@ -1,5 +1,7 @@
 package dailycoding.leetcode;
 
+import dailycoding.leetcode.helper.TreeNode;
+
 /**
  * Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root.
  *
@@ -33,9 +35,9 @@ package dailycoding.leetcode;
 public class LongestUnivaluePath {
     public static void main(String[] args) {
         LongestUnivaluePath test = new LongestUnivaluePath();
-        TreeNode test1 = test.createTree(5,4,5,1,1,null,5);
-        TreeNode test2 = test.createTree(1,4,5,4,4,null,5);
-        TreeNode test3 = test.createTree(4,-7,-3,null,null,-9,-3,9,-7,-4,null,6,null,-6,-6,null,null,0,6,5,null,9,null,null,-1,-4,null,null,null,-2);
+        TreeNode test1 = TreeNode.createTree(5,4,5,1,1,null,5);
+        TreeNode test2 = TreeNode.createTree(1,4,5,4,4,null,5);
+        TreeNode test3 = TreeNode.createTree(4,-7,-3,null,null,-9,-3,9,-7,-4,null,6,null,-6,-6,null,null,0,6,5,null,9,null,null,-1,-4,null,null,null,-2);
 
         System.out.println("test 1 (should be 2) : " + test.longestUnivaluePath(test1));
         System.out.println("test 2 (should be 2) : " + test.longestUnivaluePath(test2));
@@ -60,20 +62,6 @@ public class LongestUnivaluePath {
         return Math.max(leftMax, rightMax);
     }
 
-    private TreeNode createTree(Integer...vals) {
-        TreeNode root = new TreeNode(0);
-        return createTreeHelper(vals, root, 0);
-    }
-
-    private TreeNode createTreeHelper(Integer[] vals, TreeNode node, int i) {
-        if(i >= vals.length) return null;
-        if(vals[i] == null) return null;
-        node = new TreeNode(vals[i]);
-        node.left = createTreeHelper(vals, new TreeNode(0), (i * 2 ) + 1);
-        node.right = createTreeHelper(vals, new TreeNode(0), (i * 2) + 2);
-        return node;
-    }
-
     private void preOrder(TreeNode node){
         if(node != null){
             System.out.print(node.val + ", ");
@@ -82,19 +70,4 @@ public class LongestUnivaluePath {
         }
     }
 
-    private class TreeNode{
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        public TreeNode(int val) {
-            this.val = val;
-        }
-
-        public TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 }
