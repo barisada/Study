@@ -19,7 +19,7 @@ public class Problem_11 {
         int[] times1 = {5,3,6,8,9,10,3,2};
         AutoComplte autoComplte = test.createAutocComplete(test1, times1);
 
-        System.out.println(autoComplte.weigthMap);
+        System.out.println(autoComplte.weightMap);
         System.out.println(autoComplte.searchPrefix("de"));
         System.out.println(autoComplte.searchPrefix("d"));
         System.out.println(autoComplte.searchPrefix("d "));
@@ -39,10 +39,10 @@ public class Problem_11 {
 
     public class AutoComplte {
         Trie root = new Trie('#');
-        Map<String, Integer> weigthMap = new HashMap<>();
+        Map<String, Integer> weightMap = new HashMap<>();
 
         public void addWeightMap(String word, int weight) {
-            weigthMap.put(word, weight);
+            weightMap.put(word, weight);
         }
 
         public void addWord(String word){
@@ -68,7 +68,7 @@ public class Problem_11 {
             }
 
             List<String> result = getWordsDFS(cur);
-            result.sort((word1, word2) -> Integer.compare(weigthMap.get(word2), weigthMap.get(word1)));
+            result.sort((word1, word2) -> Integer.compare(weightMap.get(word2), weightMap.get(word1)));
             return result;
 
         }
