@@ -15,23 +15,35 @@ public class Problem_11 {
 
     public static void main(String[] args) {
         Problem_11 test = new Problem_11();
-        String[] test1 = {"dog", "deer", "deep", "deeper", "deal", "dealer"};
-        AutoComplte autoComplte = test.createAutocComplete(test1);
+        String[] test1 = {"dog", "deer", "deep", "deeper", "deal", "dealer", "i love you", "i love coding"};
+        int[] times1 = {5,3,6,8,9,10,3,2};
+        AutoComplte autoComplte = test.createAutocComplete(test1, times1);
 
-        System.out.println(autoComplte.searchPrefix("dee"));
+        System.out.println(autoComplte.weigthMap);
+        System.out.println(autoComplte.searchPrefix("de"));
+        System.out.println(autoComplte.searchPrefix("d"));
+        System.out.println(autoComplte.searchPrefix("d "));
+        System.out.println(autoComplte.searchPrefix("i"));
+        System.out.println(autoComplte.searchPrefix("i "));
 
     }
 
-    public AutoComplte createAutocComplete(String...args){
+    public AutoComplte createAutocComplete(String[] words, int[] times){
         AutoComplte auto = new AutoComplte();
-        for(String str : args){
-            auto.addWord(str);
+        for(int i = 0; i < words.length; i++){
+            auto.addWord(words[i]);
+            auto.addWeightMap(words[i], times[i]);
         }
         return auto;
     }
 
     public class AutoComplte {
         Trie root = new Trie('#');
+        Map<String, Integer> weigthMap = new HashMap<>();
+
+        public void addWeightMap(String word, int weight) {
+            weigthMap.put(word, weight);
+        }
 
         public void addWord(String word){
             Trie cur = root;
@@ -55,7 +67,9 @@ public class Problem_11 {
                 cur = cur.sub.get(c);
             }
 
-            return getWordsDFS(cur);
+            List<String> result = getWordsDFS(cur);
+            result.sort((word1, word2) -> Integer.compare(weigthMap.get(word2), weigthMap.get(word1)));
+            return result;
 
         }
 
@@ -73,6 +87,7 @@ public class Problem_11 {
                     stack.add(sub);
                 }
             }
+
             return words;
         }
     }
