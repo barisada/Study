@@ -1,6 +1,6 @@
 package dailycoding.leetcode;
 
-import dailycoding.leetcode.helper.TreeNode;
+import dailycoding.leetcode.nodes.TreeNode;
 import org.springframework.util.StopWatch;
 
 /**

@@ -1,4 +1,4 @@
-package dailycoding.leetcode.helper;
+package dailycoding.leetcode.nodes;
 
 public class TreeNode {
     public int val;
