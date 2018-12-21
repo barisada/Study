@@ -10,15 +10,32 @@ import dailycoding.leetcode.nodes.ListNode;
  * Input: 1->2->4, 1->3->4
  * Output: 1->1->2->3->4->4
  *
- * leetcode #23
+ * leetcode #21
  */
 public class MergeTwoLists {
     public static void main(String[] args) {
         MergeTwoLists test = new MergeTwoLists();
         ListNode node1 = ListNode.create(1,2,4);
-        ListNode node2 = ListNode.create(1,3,4);
+        ListNode node2 = ListNode.create(4,3,1);
+
+        ListNode node3 = ListNode.create(4,2);
+        ListNode node4 = ListNode.create(1,3);
 
         System.out.println(test.mergeTwoLists(node1, node2));
+        System.out.println(test.mergeTwoListsShort(node3, node4));
+    }
+
+    public ListNode mergeTwoListsShort(ListNode left, ListNode right){
+        if(left == null) return right;
+        if(right == null) return left;
+
+        if(left.val > right.val){
+            right.next = mergeTwoListsShort(left, right.next);
+            return right;
+        } else {
+            left.next = mergeTwoListsShort(left.next, right);
+            return left;
+        }
     }
 
     //todo update logic shorter or recursive...
