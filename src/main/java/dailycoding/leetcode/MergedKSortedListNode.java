@@ -22,7 +22,7 @@ import dailycoding.leetcode.nodes.ListNode;
 public class MergedKSortedListNode {
     public static void main(String[] args) {
         MergedKSortedListNode test = new MergedKSortedListNode();
-        ListNode[] arr = new ListNode[]{ListNode.create(1,4,5), ListNode.create(1,3,4), ListNode.create(2,6)};
+        ListNode[] arr = {ListNode.create(1,4,5), ListNode.create(1,3,4), ListNode.create(2,6)};
 
         System.out.println(test.mergeKLists(arr));
 
