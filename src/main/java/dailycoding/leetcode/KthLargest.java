@@ -1,5 +1,6 @@
 package dailycoding.leetcode;
 
+import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -30,6 +31,12 @@ public class KthLargest {
         System.out.println(test.findKthLargest(test1,2));
         System.out.println(test.findKthLargest(test2,4));
         System.out.println(test.findKthLargest(test3,6));
+
+        System.out.println("-=-=============================");
+
+        System.out.println(test.findKthLargestUsingSort(test1,2));
+        System.out.println(test.findKthLargestUsingSort(test2,4));
+        System.out.println(test.findKthLargestUsingSort(test3,6));
     }
 
     public int findKthLargest(int[] nums, int k) {
@@ -39,5 +46,10 @@ public class KthLargest {
             if(queue.size() > k) queue.poll();
         }
         return queue.peek();
+    }
+
+    public int findKthLargestUsingSort(int[] nums, int k){
+        Arrays.sort(nums);
+        return nums[nums.length- k];
     }
 }
