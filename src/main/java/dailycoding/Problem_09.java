@@ -24,15 +24,15 @@ public class Problem_09 {
     }
 
     private int findSum(int[] nums) {
-        int len = nums.length;
-        if(len == 0) return 0;
-        if(len == 1) return nums[0];
+        if(nums.length == 0) return 0;
+        if(nums.length == 1) return nums[0];
+
         int curMax = nums[0];
         int lastest = nums[1];
-        for(int i = 2 ; i < len; i++){
-            int cur = nums[i] >= 0 ? nums[i] + curMax : curMax;
-            curMax = Math.max(curMax, lastest);
-            lastest = cur;
+        for(int i = 2; i < nums.length; i++){
+            int sum = curMax + nums[i];
+            curMax = Math.max(lastest, curMax);
+            lastest = Math.max(sum, lastest);
         }
         return Math.max(curMax, lastest);
     }
