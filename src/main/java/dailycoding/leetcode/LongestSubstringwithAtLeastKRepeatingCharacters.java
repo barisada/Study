@@ -32,32 +32,31 @@ public class LongestSubstringwithAtLeastKRepeatingCharacters {
     }
 
     public int longestSubstring(String s, int k) {
-        if(s.length() < k ) return 0;
-        int max = 0;
-        int n = s.length();
+        if(s.length() < k) return 0;
+
         int[] arr = new int[26];
+        for(char c : s.toCharArray()) arr[c - 'a']++;
 
-        for(char c : s.toCharArray()){
-            arr[c - 'a']++;
+        boolean allValid  = true;
+        for(int i : arr){
+            if(i > 0 && i < k)  allValid = false;
         }
 
-        boolean validString = true;
-        for(int i : arr ){
-            if(i < k && i > 0) validString = false;
-        }
+        if(allValid) return s.length();
 
-        if(validString) return n;
-
-        int start = 0, end = 0;
-        while(start < n && end < n){
-            char cur = s.charAt(end);
-            if(arr[cur - 'a'] < k){
-                max = Math.max(max, longestSubstring(s.substring(start, end), k));
-                start = end + 1;
+        int lo = 0, hi = 0, max = 0;
+        while(hi < s.length()){
+            int cur = s.charAt(hi) - 'a';
+            if(arr[cur] < k){
+                String sub = s.substring(lo, hi);
+                max = Math.max(max, longestSubstring(sub, k));
+                lo = hi + 1;
             }
-            end++;
+            hi++;
         }
-        max = Math.max(max, longestSubstring(s.substring(start, end), k));
+
+        String sub = s.substring(lo, hi);
+        max = Math.max(max, longestSubstring(sub, k));
         return max;
 
     }
