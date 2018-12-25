@@ -1,7 +1,7 @@
 package dailycoding;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.util.*;
 
 /**
  * You run an e-commerce website and want to record the last N order ids in a log.
@@ -15,38 +15,92 @@ public class Problem_16 {
 
     public static void main(String[] args) {
         Problem_16 test =new Problem_16();
-        RecordLastNOrder order = test.createRecords(5);
-        for(int i = 0; i < 99; i++){
-            order.record(i + 100);
+        Log order = test.createRecords(10);
+
+        Random random = new Random();
+        for(int i = 0; i < 53; i++){
+            order.record(test.createOrder(i, random.nextInt(1000), random.nextInt(10), "user" + i, LocalDateTime.now()));
         }
         System.out.println(order);
         System.out.println(order.getLast(2));
 
     }
 
-    public RecordLastNOrder createRecords(int n){
-        return new RecordLastNOrder(n);
+    private Order createOrder(int id, int price, int qty, String userName, LocalDateTime now) {
+        return new Order(id, price, qty, userName, now );
     }
 
-    class RecordLastNOrder{
-        List<Integer> records = new ArrayList<>();
-        int recordMax;
+    public Log createRecords(int n){
+        return new Log(n);
+    }
 
-        RecordLastNOrder(int n){
+    class Log {
+        List<Order> orderRecords = new LinkedList<>();
+        Map<Integer, Order> orderMap = new HashMap<>();
+        int recordMax;
+        int idxOffset = 0;
+
+        Log(int n){
             this.recordMax = n;
         }
-        public void record(int orderId){
-            if(records.size() == recordMax) records.remove(0);
-            records.add(orderId);
+
+        /**
+         * Remove oldest and record new Order is O(1) since it is LinkedList and HashMap.
+         * @param latestOrder
+         */
+        public void record(Order latestOrder){
+            if(orderRecords.size() == recordMax){
+                orderRecords.remove(0);
+                orderMap.remove(idxOffset++);
+            }
+            orderRecords.add(latestOrder);
+            orderMap.put(orderRecords.size() - 1 + idxOffset, latestOrder);
         }
 
-        public int getLast(int i){
-            return records.get(records.size() - i);
+        /**
+         * get last ith order is O(1) since it uses hashmap
+         * @param i
+         * @return
+         */
+        public Order getLast(int i){
+            return orderMap.get(orderRecords.size() - i + idxOffset);
         }
 
         @Override
         public String toString() {
-            return records.toString();
+            StringBuilder sb = new StringBuilder();
+            for(Order order: orderRecords) sb.append(order + System.lineSeparator());
+            sb.append("===============================" + System.lineSeparator());
+            for(Map.Entry<Integer, Order> entry : orderMap.entrySet()) sb.append(entry + System.lineSeparator());
+
+            return sb.toString();
+        }
+    }
+
+    class Order{
+        int id;
+        int price;
+        int qty;
+        String buyer;
+        LocalDateTime lastOrderAt;
+
+        public Order(int id, int price, int qty, String buyer, LocalDateTime lastOrderAt) {
+            this.id = id;
+            this.price = price;
+            this.qty = qty;
+            this.buyer = buyer;
+            this.lastOrderAt = lastOrderAt;
+        }
+
+        @Override
+        public String toString() {
+            return "Order{" +
+                    "id=" + id +
+                    ", price=" + price +
+                    ", qty=" + qty +
+                    ", buyer='" + buyer + '\'' +
+                    ", lastOrderAt=" + lastOrderAt +
+                    '}';
         }
     }
 }
