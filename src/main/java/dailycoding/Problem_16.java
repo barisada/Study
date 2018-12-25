@@ -82,14 +82,14 @@ public class Problem_16 {
         int price;
         int qty;
         String buyer;
-        LocalDateTime lastOrderAt;
+        LocalDateTime lastUpdatedTime;
 
-        public Order(int id, int price, int qty, String buyer, LocalDateTime lastOrderAt) {
+        public Order(int id, int price, int qty, String buyer, LocalDateTime lastUpdatedTime) {
             this.id = id;
             this.price = price;
             this.qty = qty;
             this.buyer = buyer;
-            this.lastOrderAt = lastOrderAt;
+            this.lastUpdatedTime = lastUpdatedTime;
         }
 
         @Override
@@ -99,7 +99,7 @@ public class Problem_16 {
                     ", price=" + price +
                     ", qty=" + qty +
                     ", buyer='" + buyer + '\'' +
-                    ", lastOrderAt=" + lastOrderAt +
+                    ", lastOrderAt=" + lastUpdatedTime +
                     '}';
         }
     }
