@@ -16,9 +16,9 @@ import java.util.*;
  *
  * leetcode #239. Sliding Window Maximum
  */
-public class Problem_17 {
+public class Problem_18 {
     public static void main(String[] args) {
-        Problem_17 test =new Problem_17();
+        Problem_18 test =new Problem_18();
         int[] test1 = {10,5,2,7,8,7};
         int[] test2 = {1,3,-1,-3,5,3,6,7};
         int[] test3 = {1,5,4,3,2,1,0};
