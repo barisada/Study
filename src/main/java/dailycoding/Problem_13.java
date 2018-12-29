@@ -1,6 +1,7 @@
 package dailycoding;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 /**
@@ -24,24 +25,26 @@ public class Problem_13 {
 
     public String longestSubstringWithDistinctCharacter(String str, int k){
         Map<Character, Integer> map = new HashMap<>();
-        int lo = 0, hi = 0, max = 0;
-        String test = "";
+        int lo =0, hi=0, from =0, to =0, max = 0;
         while(hi < str.length()){
-            char c = str.charAt(hi);
-            if(map.containsKey(c) || map.size() < k){
-                map.put(c, map.getOrDefault(c, 0) + 1);
-                hi++;
-                if (max < (hi - lo)) {
-                    test = str.substring(lo, hi);
-                    max = (hi - lo);
-                }
-            }else {
+            char cur = str.charAt(hi++);
+            if(map.containsKey(cur)){
+                map.put(cur, map.get(cur) + 1);
+            } else if(map.size() < k){
+                map.put(cur, 1);
+            } else {
                 char remove = str.charAt(lo++);
                 if(map.get(remove) == 1) map.remove(remove);
                 else map.put(remove, map.get(remove) - 1);
+                hi--;
+            }
+            if(hi - lo > max){
+                from = lo;
+                to = hi;
+                max = hi - lo;
             }
         }
-        return test;
+        return str.substring(from, to);
     }
 
     public String longestDistinctSubstring(String str){
@@ -51,22 +54,18 @@ public class Problem_13 {
         int maxFrom = 0, maxTo = 0;
         while(hi < str.length()){
             int curIdx = str.charAt(hi);
-            if(arr[curIdx] == 0
-
-
-
-            ){
+            if(arr[curIdx] == 0){
                 arr[curIdx]++;
-                if(max < (hi - lo)){
-                    max = (hi - lo);
-                    maxFrom = lo;
-                    maxTo = hi;
-                }
                 hi++;
             } else {
                 arr[str.charAt(lo++)]--;
             }
+            if(max < (hi - lo)){
+                max = (hi - lo);
+                maxFrom = lo;
+                maxTo = hi;
+            }
         }
-        return str.substring(maxFrom, maxTo + 1);
+        return str.substring(maxFrom, maxTo);
     }
 }
