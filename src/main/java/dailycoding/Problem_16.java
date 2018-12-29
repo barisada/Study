@@ -54,7 +54,7 @@ public class Problem_16 {
                 orderMap.remove(idxOffset++);
             }
             orderRecords.add(latestOrder);
-            orderMap.put(orderRecords.size() - 1 + idxOffset, latestOrder);
+            orderMap.put(latestOrder.id, latestOrder);
         }
 
         /**
