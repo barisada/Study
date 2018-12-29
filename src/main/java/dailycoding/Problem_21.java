@@ -18,19 +18,19 @@ public class Problem_21 {
         list1.add(test.createinterval(0, 50));
         list1.add(test.createinterval(60, 150));
 
-        System.out.println("should be 2 : " + test.minimunMeetingRoom(list1));
+        System.out.println("should be 2 : " + test.minimumMeetingRoom(list1));
 
         // [(30, 75), (0, 50), (10, 20), (5, 20), (60, 150)]
         list1.add(test.createinterval(10, 20));
         list1.add(test.createinterval(5, 20));
-        System.out.println("should be 3 : " + test.minimunMeetingRoom(list1));
+        System.out.println("should be 3 : " + test.minimumMeetingRoom(list1));
 
         List<Interval> list2 = new ArrayList<>();
         list2.add(test.createinterval(0, 30));
         list2.add(test.createinterval(5, 10));
         list2.add(test.createinterval(15, 20));
 
-        System.out.println("should be 2 : " + test.minimunMeetingRoom(list2));
+        System.out.println("should be 2 : " + test.minimumMeetingRoom(list2));
 
         List<Interval> list3 = new ArrayList<>();
         list3.add(test.createinterval(1,4));
@@ -38,30 +38,23 @@ public class Problem_21 {
         list3.add(test.createinterval(8,9));
         list3.add(test.createinterval(2,6));
 
-        System.out.println("should be 2 : " + test.minimunMeetingRoom(list3));
+        System.out.println("should be 2 : " + test.minimumMeetingRoom(list3));
     }
 
-    public int minimunMeetingRoom(List<Interval> intervals){
+    public int minimumMeetingRoom(List<Interval> intervals){
         if(intervals.size() == 0) return 0;
+        intervals.sort(Comparator.comparingInt(interval -> interval.start));
 
-        intervals.sort((a ,b) -> {
-            if(a.start == b.start) return Integer.compare(a.end, b.end);
-            return Integer.compare(a.start, b.start);
-        });
-
-        Queue<Interval> rooms = new PriorityQueue<>(Comparator.comparingInt(interval -> interval.end));
         int max = 0;
-        for(int i = 0; i < intervals.size(); i++){
-            Interval cur = intervals.get(i);
-            while(!rooms.isEmpty() && rooms.peek().end <= cur.start){
-                rooms.poll();
+        Queue<Interval> queue = new PriorityQueue<>(Comparator.comparingInt(interval -> interval.end));
+        for(Interval interval : intervals){
+            while(!queue.isEmpty() && queue.peek().end <= interval.start){
+                queue.poll();
             }
-            rooms.add(cur);
-            max = Math.max(max, rooms.size());
+            queue.add(interval);
+            max = Math.max(max, queue.size());
         }
-
         return max;
-
     }
 
     public Interval createinterval(int start, int end){
