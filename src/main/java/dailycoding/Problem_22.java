@@ -31,18 +31,23 @@ public class Problem_22 {
 
         List<String> list4 = Arrays.asList("go", "goal", "goals", "special");
         System.out.println("should be true : " + test.wordBreak("goalspecial", list4));
+
+        List<String> list5 = Arrays.asList("aa", "bb", "cc");
+        System.out.println("should be false : " + test.wordBreak("aabbccdaabbccd", list5));
     }
 
     public boolean wordBreak(String s, List<String> wordDict) {
-        Set<String> words = new HashSet<>(wordDict);
         boolean[] dp = new boolean[s.length() + 1];
         dp[0] = true;
         for(int i = 1; i <= s.length(); i++){
             for(int j = 0; j < i; j++){
-                if(dp[j] && words.contains(s.substring(j, i)))
+                String sub = s.substring(j, i);
+                if(dp[j] && wordDict.contains(sub)){
                     dp[i] = true;
+                }
             }
         }
+
         return dp[s.length()];
     }
 }
