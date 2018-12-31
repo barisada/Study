@@ -12,12 +12,12 @@ package dailycoding;
 public class Problem_09 {
     public static void main(String[] args) {
         Problem_09 test = new Problem_09();
-        int[] test1 = {2,4,6,2,5};
+        int[] test1 = {2,4,-6,2,5};
         int[] test2 = {5,1,1,5};
         int[] test3 = {5,1,1,4,3,-5,-6,7,20,10};
         int[] test4 = {5, 5, 10, 100, 10, 5};
 
-        System.out.println("should be 13 : " + test.findSum(test1));
+        System.out.println("should be 9 : " + test.findSum(test1));
         System.out.println("should be 10 : " + test.findSum(test2));
         System.out.println("should be 29 : " + test.findSum(test3));
         System.out.println("should be 110 : " + test.findSum(test4));
@@ -27,13 +27,13 @@ public class Problem_09 {
         if(nums.length == 0) return 0;
         if(nums.length == 1) return nums[0];
 
-        int curMax = nums[0];
-        int lastest = nums[1];
+        int max = nums[0];
+        int maxNext = nums[1];
         for(int i = 2; i < nums.length; i++){
-            int sum = curMax + nums[i];
-            curMax = Math.max(lastest, curMax);
-            lastest = Math.max(sum, lastest);
+            int cur = max + nums[i];
+            max = Math.max(max, maxNext);
+            maxNext = Math.max(maxNext, cur);
         }
-        return Math.max(curMax, lastest);
+        return Math.max(max, maxNext);
     }
 }
