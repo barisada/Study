@@ -28,4 +28,13 @@ public class TreeNode {
         node.right = createTreeHelper(vals, new TreeNode(0), (i * 2) + 2);
         return node;
     }
+
+    @Override
+    public String toString() {
+        return "TreeNode{" +
+                "val=" + val +
+                ", left=" + left +
+                ", right=" + right +
+                '}';
+    }
 }
