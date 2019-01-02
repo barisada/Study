@@ -20,6 +20,7 @@ public class Problem_26 {
         System.out.println("5, 8 should missing : " + test.removeNthFromEnd(head1, 5));
         System.out.println("2, 5, 8 should missing : " + test.removeNthFromEnd(head1, 7));
         System.out.println("1, 2, 5, 8 should missing : " + test.removeNthFromEnd(head1, 7));
+        System.out.println("1, 2, 5, 8, 10 should missing : " + test.removeNthFromEnd(head1, 1));
 
         ListNode head2 = ListNode.create(1);
         System.out.println("should be null : " + test.removeNthFromEnd(head2, 1));
@@ -31,6 +32,8 @@ public class Problem_26 {
 
         ListNode slow = newHead;
         ListNode fast = newHead;
+
+        //move 'fast node' upto 'n'
         for(int i = 0; i <= n; i++){
             fast = fast.next;
         }
