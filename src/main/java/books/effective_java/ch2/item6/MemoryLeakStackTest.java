@@ -15,7 +15,7 @@ public class MemoryLeakStackTest {
         System.out.println("memory leak example ");
         System.out.println("before free memory: " + beforeFreeMem);
         System.out.println("after free memory: " + afterFreeMem);
-        System.out.println("difference : " + (beforeFreeMem - afterFreeMem));
+        System.out.println("difference : " + (afterFreeMem - beforeFreeMem));
 
         System.out.println("===============================");
 
@@ -29,7 +29,7 @@ public class MemoryLeakStackTest {
         System.out.println("prevent memory leak example ");
         System.out.println("before free memory: " + beforeFreeMem);
         System.out.println("after free memory: " + afterFreeMem);
-        System.out.println("difference : " + (beforeFreeMem - afterFreeMem));
+        System.out.println("difference : " + (afterFreeMem - beforeFreeMem));
 
 
 
