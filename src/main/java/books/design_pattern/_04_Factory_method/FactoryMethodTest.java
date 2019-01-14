@@ -28,5 +28,8 @@ public class FactoryMethodTest {
                 ,idCardFactory.create("Michelle")
         ).parallelStream().forEach(Product::use);
 
+       ((IDCardFactory) idCardFactory).showRegisteredOwners();
+       ((TelevisionFactory) tvFactory).showRegisteredOwners();
+
     }
 }

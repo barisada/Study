@@ -21,4 +21,8 @@ public class TelevisionFactory extends Factory {
     protected void registerProduct(Product product) {
         owners.add(product.getOwner());
     }
+
+    public void showRegisteredOwners(){
+        System.out.println(owners);
+    }
 }
